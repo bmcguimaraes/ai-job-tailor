@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resume Analyser</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:2rem;color:#111}a{color:#0b63d6}</style>
+</head>
+<body>
+  <h1>Resume Analyser</h1>
+  <p>The backend is running. Use the API endpoints below.</p>
+  <ul>
+    <li><strong>Upload resume</strong>: <code>POST /api/resumes/upload</code> (multipart form, param <code>file</code>)</li>
+    <li><strong>Analyze for job</strong>: <code>POST /api/resumes/analyze/{id}</code> (path id, form param <code>vacancyUrl</code> or JSON body)</li>
+    <li><strong>Tailor resume</strong>: <code>POST /api/resumes/tailor/{id}</code></li>
+    <li><strong>Approve & save</strong>: <code>POST /api/resumes/approve/{id}</code></li>
+    <li><strong>Get resume metadata</strong>: <code>GET /api/resumes/{id}</code></li>
+    <li><strong>H2 console</strong> (if enabled): <a href="/h2-console" target="_blank">/h2-console</a></li>
+  </ul>
+
+  <h3>Quick curl examples</h3>
+  <p>Upload a file:</p>
+  <pre><code>curl -v -F "file=@/path/to/resume.pdf" http://localhost:8080/api/resumes/upload</code></pre>
+
+  <p>Get metadata (replace <code>{id}</code>):</p>
+  <pre><code>curl http://localhost:8080/api/resumes/{id}</code></pre>
+
+  <p>If you still see a Whitelabel Error Page when visiting <code>/</code>, refresh the browser cache (Shift+Refresh) or try an incognito window.</p>
+
+  <hr>
+  <p style="font-size:0.9rem;color:#666">If you'd rather have a JSON root response or a redirect, tell me and I'll add a small controller mapping `/` to your preferred behavior.</p>
+</body>
+</html>

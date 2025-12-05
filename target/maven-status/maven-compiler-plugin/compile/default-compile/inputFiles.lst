@@ -1,0 +1,10 @@
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/ResumeAnalyserApplication.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/config/OpenAiConfig.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/controller/ResumeController.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/model/Resume.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/repository/ResumeRepository.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/service/DocxService.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/service/ImproveService.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/service/JobDescriptionService.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/service/MatchingService.java
+/Users/brunoguimaraes/Repo/ai-job-tailor/src/main/java/com/bg/resume_analyser/service/StorageService.java
