@@ -17,6 +17,16 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/resumes")
 public class ResumeController {
+    // Helper to safely extract int from Map<String, Object>
+    private int getIntFromMap(Map<String, Object> map, String key) {
+        Object value = map.getOrDefault(key, 0);
+        if (value instanceof Integer) return (Integer) value;
+        if (value instanceof Long) return ((Long) value).intValue();
+        if (value instanceof String) {
+            try { return Integer.parseInt((String) value); } catch (NumberFormatException ignored) {}
+        }
+        return 0;
+    }
 
     private final ResumeRepository resumeRepository;
     private final Tika tika = new Tika();
@@ -48,10 +58,31 @@ public class ResumeController {
         }
 
         try {
+            // Diagnostic logging for file size and MIME type
+            long fileSize = file.getSize();
+            String mimeType = tika.detect(file.getInputStream());
+            System.out.println("[ResumeController] Uploaded file: " + file.getOriginalFilename());
+            System.out.println("[ResumeController] File size: " + fileSize + " bytes");
+            System.out.println("[ResumeController] Detected MIME type: " + mimeType);
+
+            // Reset input stream for parsing (since detect may consume it)
             String text = tika.parseToString(file.getInputStream());
+            System.out.println("[ResumeController] Extracted resume text:\n" + text);
             Resume r = new Resume(file.getOriginalFilename(), text);
+            // Analyze resume text immediately after upload
+            Map<String, Object> resumeAnalysis = matchingService.analyzeResumeText(text);
+            // Optionally, store analysis results in Resume object (add fields if needed)
+            // r.setAnalysis(resumeAnalysis); // If you have a field for this
             Resume saved = resumeRepository.save(r);
-            return ResponseEntity.ok(Map.of("id", saved.getId(), "filename", saved.getFilename(), "message", "Resume uploaded successfully"));
+            return ResponseEntity.ok(Map.of(
+                "id", saved.getId(),
+                "filename", saved.getFilename(),
+                "message", "Resume uploaded and analyzed successfully",
+                "resumeAnalysis", resumeAnalysis,
+                "extractedText", text,
+                "fileSize", fileSize,
+                "mimeType", mimeType
+            ));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
         }
@@ -63,19 +94,38 @@ public class ResumeController {
             @RequestParam(value = "vacancyUrl", required = false) String vacancyUrl,
             @RequestBody(required = false) Map<String, String> body) {
 
-        if (vacancyUrl == null || vacancyUrl.isBlank()) {
-            return ResponseEntity.badRequest().body(Map.of("error", "vacancyUrl is required"));
+        // Accept vacancyUrl from query param, JSON body, or form data
+        String jobText = null;
+        if ((vacancyUrl == null || vacancyUrl.isBlank()) && body != null) {
+            Object urlObj = body.get("vacancyUrl");
+            if (urlObj instanceof String && !((String) urlObj).isBlank()) {
+                vacancyUrl = (String) urlObj;
+            }
+            Object jobTextObj = body.get("jobText");
+            if (jobTextObj instanceof String && !((String) jobTextObj).isBlank()) {
+                jobText = (String) jobTextObj;
+            }
+        }
+        if ((vacancyUrl == null || vacancyUrl.isBlank()) && (jobText == null || jobText.isBlank())) {
+            return ResponseEntity.badRequest().body(Map.of("error", "vacancyUrl or jobText is required"));
         }
 
+        if (resumeId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "resumeId must not be null"));
+        }
         Resume resume = resumeRepository.findById(resumeId).orElse(null);
         if (resume == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "resume not found"));
         }
 
         try {
-            // 1. Extract job description from URL
-            Map<String, Object> jobExtraction = jobDescriptionService.extractJobDescription(vacancyUrl);
-            
+            // 1. Extract job description from URL or plain text
+            Map<String, Object> jobExtraction;
+            if (jobText != null && !jobText.isBlank()) {
+                jobExtraction = jobDescriptionService.extractJobDescriptionFromText(jobText);
+            } else {
+                jobExtraction = jobDescriptionService.extractJobDescription(vacancyUrl);
+            }
             if (!((Boolean) jobExtraction.getOrDefault("success", false))) {
                 return ResponseEntity.ok(jobExtraction); // Return error signal for manual paste
             }
@@ -98,7 +148,7 @@ public class ResumeController {
             String[] techSkills = techSkillsObj instanceof String[] ? (String[]) techSkillsObj : new String[]{};
             String[] softSkills = softSkillsObj instanceof String[] ? (String[]) softSkillsObj : new String[]{};
             String[] mainFunctions = mainFunctionsObj instanceof String[] ? (String[]) mainFunctionsObj : new String[]{};
-            int yearsRequired = (int) jobExtraction.getOrDefault("yearsOfExperience", 0);
+            int yearsRequired = getIntFromMap(jobExtraction, "yearsOfExperience");
             String position = (String) jobExtraction.getOrDefault("position", "Unknown");
 
             Map<String, Object> scoreResult = matchingService.computeScore(
@@ -111,7 +161,7 @@ public class ResumeController {
                     mainFunctions
             );
 
-            int score = (int) scoreResult.getOrDefault("score", 0);
+            int score = getIntFromMap(scoreResult, "score");
             Object missingKeywordsObj = scoreResult.get("missingKeywords");
             @SuppressWarnings("unchecked")
             List<String> missingKeywords = missingKeywordsObj instanceof List ? (List<String>) missingKeywordsObj : new ArrayList<>();
@@ -151,6 +201,9 @@ public class ResumeController {
             @PathVariable("id") Long resumeId,
             @RequestBody Map<String, Object> request) {
 
+        if (resumeId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "resumeId must not be null"));
+        }
         Resume resume = resumeRepository.findById(resumeId).orElse(null);
         if (resume == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "resume not found"));
@@ -160,7 +213,7 @@ public class ResumeController {
             Object selectedKeywordsObj = request.get("selectedKeywords");
             @SuppressWarnings("unchecked")
             List<String> selectedKeywords = selectedKeywordsObj instanceof List ? (List<String>) selectedKeywordsObj : new ArrayList<>();
-            int maxDeviation = (int) request.getOrDefault("maxDeviationPercent", 40);
+            int maxDeviation = getIntFromMap(request, "maxDeviationPercent");
 
             String jobText = resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "No job description";
 
@@ -200,6 +253,9 @@ public class ResumeController {
             @PathVariable("id") Long resumeId,
             @RequestBody Map<String, Object> request) {
 
+        if (resumeId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "resumeId must not be null"));
+        }
         Resume resume = resumeRepository.findById(resumeId).orElse(null);
         if (resume == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "resume not found"));
@@ -238,6 +294,9 @@ public class ResumeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getResume(@PathVariable("id") Long resumeId) {
+        if (resumeId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "resumeId must not be null"));
+        }
         Resume resume = resumeRepository.findById(resumeId).orElse(null);
         if (resume == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "resume not found"));

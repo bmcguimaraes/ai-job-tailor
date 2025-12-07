@@ -1,10 +1,11 @@
 com/bg/resume_analyser/ResumeAnalyserApplication.class
 com/bg/resume_analyser/repository/ResumeRepository.class
-com/bg/resume_analyser/service/ImproveService.class
 com/bg/resume_analyser/service/JobDescriptionService.class
-com/bg/resume_analyser/service/MatchingService.class
 com/bg/resume_analyser/service/StorageService.class
 com/bg/resume_analyser/controller/ResumeController.class
 com/bg/resume_analyser/model/Resume.class
+com/bg/resume_analyser/service/ImproveService.class
+com/bg/resume_analyser/service/MatchingService.class
+com/bg/resume_analyser/config/OpenAiConfig.class
 com/bg/resume_analyser/service/DocxService.class
 com/bg/resume_analyser/service/MatchingService$1.class

@@ -166,11 +166,20 @@ See **DEMO_GUIDE.md** for complete curl examples and end-to-end workflow.
 
 Brief example:
 ```bash
+
 # 1. Upload resume
 curl -F "file=@resume.pdf" http://localhost:8080/api/resumes/upload
 
-# 2. Analyze against job
+# 2. Analyze against job (any of these work):
+# As query parameter:
 curl -X POST "http://localhost:8080/api/resumes/analyze/1?vacancyUrl=https://..."
+# As JSON body:
+curl -X POST "http://localhost:8080/api/resumes/analyze/1" \
+    -H "Content-Type: application/json" \
+    -d '{"vacancyUrl":"https://..."}'
+# As form data:
+curl -X POST "http://localhost:8080/api/resumes/analyze/1" \
+    -F "vacancyUrl=https://..."
 
 # 3-4. Generate and save tailored resume (see DEMO_GUIDE.md for details)
 ```

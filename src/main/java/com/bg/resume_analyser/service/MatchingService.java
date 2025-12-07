@@ -17,6 +17,38 @@ import java.util.stream.Collectors;
 @Service
 public class MatchingService {
 
+    /**
+     * Analyze resume text for sections, skills, and summary (basic extraction).
+     */
+    public Map<String, Object> analyzeResumeText(String resumeText) {
+        Map<String, Object> result = new HashMap<>();
+        if (resumeText == null || resumeText.isBlank()) {
+            result.put("success", false);
+            result.put("message", "No resume text provided.");
+            return result;
+        }
+        // Simple extraction: look for sections and skills
+        String[] lines = resumeText.split("\n");
+        List<String> skills = new ArrayList<>();
+        List<String> experience = new ArrayList<>();
+        String summary = "";
+        boolean inSkills = false, inExperience = false, inSummary = false;
+        for (String line : lines) {
+            String l = line.trim().toLowerCase();
+            if (l.contains("skills")) { inSkills = true; inExperience = false; inSummary = false; continue; }
+            if (l.contains("experience")) { inSkills = false; inExperience = true; inSummary = false; continue; }
+            if (l.contains("summary") || l.contains("profile")) { inSkills = false; inExperience = false; inSummary = true; continue; }
+            if (inSkills && !l.isEmpty()) skills.add(line.trim());
+            if (inExperience && !l.isEmpty()) experience.add(line.trim());
+            if (inSummary && !l.isEmpty()) summary += line.trim() + " ";
+        }
+        result.put("skills", skills);
+        result.put("experience", experience);
+        result.put("summary", summary.trim());
+        result.put("success", true);
+        return result;
+    }
+
     @Value("${spring.ai.openai.api-key:}")
     private String openaiApiKey;
 

@@ -15,6 +15,25 @@ import java.util.*;
 @Service
 public class ImproveService {
 
+    /**
+     * Safely extract an int from a map or object (handles Integer, Long, String).
+     */
+    private static int safeInt(Object value, int defaultValue) {
+        if (value instanceof Integer) {
+            return (Integer) value;
+        } else if (value instanceof Long) {
+            return ((Long) value).intValue();
+        } else if (value instanceof String) {
+            try {
+                return Integer.parseInt((String) value);
+            } catch (NumberFormatException e) {
+                return defaultValue;
+            }
+        } else {
+            return defaultValue;
+        }
+    }
+
     @Value("${spring.ai.openai.api-key:}")
     private String openaiApiKey;
 
@@ -108,8 +127,8 @@ public class ImproveService {
                 
                 // Estimate projected score with all improvements
                 int totalImpact = improvements.stream()
-                        .mapToInt(imp -> (int) imp.get("impactScoreIncrease"))
-                        .sum();
+                    .mapToInt(imp -> safeInt(imp.get("impactScoreIncrease"), 0))
+                    .sum();
                 int projectedScore = Math.min(100, currentScore + totalImpact);
                 result.put("projectedScore", projectedScore);
 
