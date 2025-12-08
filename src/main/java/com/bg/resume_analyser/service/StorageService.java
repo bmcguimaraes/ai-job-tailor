@@ -20,23 +20,22 @@ public class StorageService {
                                                   Map<String, Object> improvements,
                                                   String originalResumeText) {
         Map<String, Object> result = new HashMap<>();
-        
         try {
-            // Create folder: {company}_{position}
-            String folderName = sanitizeFolderName(company + "_" + position);
+            // Ensure company and position are not empty
+            String safeCompany = (company == null || company.isBlank()) ? "UnknownCompany" : company;
+            String safePosition = (position == null || position.isBlank()) ? "UnknownPosition" : position;
+            String folderName = sanitizeFolderName(safeCompany + "_" + safePosition);
             Path folderPath = Paths.get(BASE_FOLDER, folderName);
             Files.createDirectories(folderPath);
 
-            // Save original resume text (for reference)
-            String originalFileName = "original_resume_" + LocalDate.now() + ".txt";
-            Files.write(folderPath.resolve(originalFileName), originalResumeText.getBytes());
-
-            // Save tailored resume as text file
-            String tailoredFileName = "tailored_resume_" + LocalDate.now() + ".txt";
-            Files.write(folderPath.resolve(tailoredFileName), tailoredResumeText.getBytes());
-
-            // Save DOCX file
-            String docxFileName = "tailored_resume_" + LocalDate.now() + ".docx";
+            // Extract user's name from resume text (first non-empty line)
+            String extractedUserName = extractUserNameFromResumeText(originalResumeText);
+            if (extractedUserName == null || extractedUserName.isBlank()) {
+                extractedUserName = "User";
+            }
+            String safeUserName = sanitizeNameForFilename(extractedUserName);
+            String safePositionFile = sanitizeFolderName(safePosition).toLowerCase();
+            String docxFileName = safeUserName + "_" + safePositionFile + ".docx";
             Files.write(folderPath.resolve(docxFileName), docxBytes);
 
             // Save metadata (vacancy URL, date, score, improvements)
@@ -52,9 +51,9 @@ public class StorageService {
                     Improvements Applied:
                     %s
                     
-                    Note: Original resume and tailored resume saved. Review both before applying.
+                    Note: Only tailored resume (DOCX) and metadata are saved. PDF output is planned for future releases.
                     """,
-                    company, position, vacancyUrl, LocalDate.now(), matchScore,
+                    safeCompany, safePosition, vacancyUrl, LocalDate.now(), matchScore,
                     formatImprovements(improvements));
 
             Files.write(folderPath.resolve("metadata.txt"), metadata.getBytes());
@@ -63,14 +62,23 @@ public class StorageService {
             result.put("folderPath", folderPath.toString());
             result.put("resumeFile", docxFileName);
             result.put("metadataFile", "metadata.txt");
-            result.put("message", "Resume and metadata saved successfully");
-
+            result.put("message", "Tailored resume (DOCX) and metadata saved successfully");
         } catch (IOException e) {
             result.put("success", false);
             result.put("error", e.getMessage());
         }
-
         return result;
+    }
+    /**
+     * Sanitizes a name for use in a filename, preserving ASCII and common accented letters by converting them to their closest ASCII equivalent.
+     */
+    private String sanitizeNameForFilename(String name) {
+        if (name == null) return "User";
+        // Normalize to NFD and remove diacritics (accents)
+        String normalized = java.text.Normalizer.normalize(name, java.text.Normalizer.Form.NFD);
+        normalized = normalized.replaceAll("[^\\p{ASCII}]", ""); // Remove non-ASCII
+        normalized = normalized.replaceAll("[^a-zA-Z0-9]", ""); // Remove any remaining non-alphanumeric
+        return normalized;
     }
 
     private String sanitizeFolderName(String name) {
@@ -81,11 +89,32 @@ public class StorageService {
         if (improvements == null || improvements.isEmpty()) {
             return "No specific improvements recorded.";
         }
-        
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Object> entry : improvements.entrySet()) {
             sb.append("- ").append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
         return sb.toString();
+    }
+
+
+    /**
+     * Extracts user name from resume text (first non-empty line, removes ~ if present).
+     */
+    private String extractUserNameFromResumeText(String resumeText) {
+        if (resumeText == null) return null;
+        for (String line : resumeText.split("\n")) {
+            String trimmed = line.trim();
+            if (!trimmed.isEmpty()) {
+                // Remove ~ and keep letters (including accents) and spaces
+                String name = trimmed.replace("~", "").replaceAll("[^\\p{L} ]", "").replaceAll(" +", " ");
+                // Use only first two words if more than two
+                String[] parts = name.split(" ");
+                if (parts.length > 2) {
+                    name = parts[0] + " " + parts[1];
+                }
+                return name.trim();
+            }
+        }
+        return null;
     }
 }

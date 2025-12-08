@@ -8,18 +8,24 @@
 
 ## What We Built
 
+
 ### Core Features
 1. **Resume Upload**: Extract text from PDF resumes using Apache Tika
 2. **Job Posting Analysis**: Scrape job postings and extract key details (position, salary, skills, experience level, posting date)
 3. **Intelligent Matching**: 
-   - Embeddings-based semantic similarity (OpenAI)
-   - Keyword matching on required skills
-   - Weighted scoring: Soft Skills (20%), Technical (30%), Role/Experience (40%), Keywords (10%)
-   - Flags red flags: Security Clearance or UK Passport requirements
+    - Embeddings-based semantic similarity (OpenAI)
+    - Keyword matching on required skills
+    - Weighted scoring: Soft Skills (20%), Technical (30%), Role/Experience (40%), Keywords (10%)
+    - **Note:** The matching score is computed by the backend using embeddings and field matching logic, not directly by an LLM. The LLM is used for extraction, not for scoring.
+    - Flags red flags: Security Clearance or UK Passport requirements
+    - ⚠️ **Matching system may need readjustment/tuning for better accuracy.**
 4. **Improvement Suggestions**: AI-generated suggestions (up to 6) for tailoring your resume
 5. **Resume Tailoring**: Generate a tailored version using selected keywords (max 40% modification)
 6. **DOCX Output**: Download tailored resume in Microsoft Word format for review
-7. **Local Storage**: Save approved resumes to `/Users/brunoguimaraes/Documents/JA/{company_position}/` with metadata
+7. **Local Storage**: Save tailored resumes to `/Users/brunoguimaraes/Documents/JA/{company_position}/` as DOCX and metadata only
+    - Folder name is always `{company}_{position}` (sanitized)
+    - Tailored resume DOCX file is named `{YourName}_{position}.docx` (e.g., `BrunoGuimaraes_software_dev.docx`)
+    - ⚠️ End goal: Output tailored resume as PDF (not DOCX)
 
 ---
 
@@ -60,16 +66,18 @@ Resume Entity (H2 Database)
 ```
 POST /api/resumes/upload
 Input: multipart/form-data (PDF file)
+
 Output: { id, filename, message }
+
 ```
 
 ### 2. Analyze Resume Against Job
 ```
 POST /api/resumes/analyze/{id}?vacancyUrl={url}
-Input: Job posting URL
-Output: Job details + match score (0-100) + improvement suggestions + red flags
-```
 
+Input: Job posting URL
+
+```
 ### 3. Generate Tailored Resume
 ```
 POST /api/resumes/tailor/{id}
@@ -77,24 +85,26 @@ Input: { selectedKeywords: [...], maxDeviationPercent: 40 }
 Output: Tailored text + DOCX (base64-encoded)
 ```
 
+
+
 ### 4. Save Approved Resume
 ```
 POST /api/resumes/approve/{id}
 Input: { company, position, docxBase64, improvements }
 Output: Folder path + saved files
+
 ```
 
-### 5. Get Resume Status
 ```
-GET /api/resumes/{id}
-Output: Resume metadata (score, company, position, applied status)
 ```
 
 ---
 
 ## Scoring Formula
 
+
 ```
+
 Final Score = (
     0.20 * softSkillsMatch +
     0.30 * technicalSkillsMatch +
@@ -104,14 +114,10 @@ Final Score = (
 
 Score ≥ 75: "Good match"
 Score 50-74: "Moderate match"
+
 Score < 50: "Poor match"
-```
 
----
 
-## Red Flags
-The system automatically flags and warns you if:
-- ⛔ Job requires **Security Clearance (SC)**
 - ⛔ Job requires **UK Passport**
 
 When flagged, the system advises NOT to proceed as you don't meet the eligibility criteria.

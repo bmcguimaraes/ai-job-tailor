@@ -57,23 +57,33 @@ public class ResumeController {
             return ResponseEntity.badRequest().body(Map.of("error", "file is required"));
         }
 
+        String filename = file.getOriginalFilename();
+        if (filename != null && filename.toLowerCase().endsWith(".pages")) {
+            // Bold warning for .pages file
+            System.out.println("\u001B[1m[WARNING]\u001B[0m .pages files are not officially supported. Extraction may be poor and formatting will not be preserved. Please export as DOCX for best results.");
+        }
+        if (filename != null && filename.toLowerCase().endsWith(".pdf")) {
+            // Bold warning for PDF file
+            System.out.println("\u001B[1m[WARNING]\u001B[0m PDF formatting cannot be preserved. Please upload DOCX for best results.");
+        }
+
         try {
             // Diagnostic logging for file size and MIME type
             long fileSize = file.getSize();
             String mimeType = tika.detect(file.getInputStream());
-            System.out.println("[ResumeController] Uploaded file: " + file.getOriginalFilename());
+            System.out.println("[ResumeController] Uploaded file: " + filename);
             System.out.println("[ResumeController] File size: " + fileSize + " bytes");
             System.out.println("[ResumeController] Detected MIME type: " + mimeType);
 
             // Reset input stream for parsing (since detect may consume it)
             String text = tika.parseToString(file.getInputStream());
             System.out.println("[ResumeController] Extracted resume text:\n" + text);
-            Resume r = new Resume(file.getOriginalFilename(), text);
+            Resume r = new Resume(filename, text);
             // Analyze resume text immediately after upload
             Map<String, Object> resumeAnalysis = matchingService.analyzeResumeText(text);
-            // Optionally, store analysis results in Resume object (add fields if needed)
-            // r.setAnalysis(resumeAnalysis); // If you have a field for this
             Resume saved = resumeRepository.save(r);
+            // Bold success output
+            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume uploaded and analyzed successfully.");
             return ResponseEntity.ok(Map.of(
                 "id", saved.getId(),
                 "filename", saved.getFilename(),
@@ -227,12 +237,52 @@ public class ResumeController {
 
             String tailoredText = (String) tailoringResult.getOrDefault("tailoredText", resume.getOriginalText());
 
-            // Generate DOCX
-            byte[] docxBytes = docxService.generateDocx(tailoredText);
+            // Try to get original DOCX file from upload (if available)
+            byte[] originalDocxBytes = null;
+            try {
+                String originalFilename = resume.getFilename();
+                if (originalFilename != null && originalFilename.toLowerCase().endsWith(".docx")) {
+                    java.nio.file.Path originalPath = java.nio.file.Paths.get(System.getProperty("user.home"), "Documents", "JA", originalFilename);
+                    if (java.nio.file.Files.exists(originalPath)) {
+                        originalDocxBytes = java.nio.file.Files.readAllBytes(originalPath);
+                    }
+                }
+            } catch (Exception e) {
+                originalDocxBytes = null;
+            }
 
-            // Save tailored version
+            byte[] docxBytes;
+            if (originalDocxBytes != null) {
+                try (java.io.ByteArrayInputStream in = new java.io.ByteArrayInputStream(originalDocxBytes)) {
+                    docxBytes = docxService.generateDocxWithStyle(tailoredText, in);
+                }
+            } else {
+                docxBytes = docxService.generateDocx(tailoredText);
+            }
+
+            // Save tailored version to DB
             resume.setTailoredText(tailoredText);
             resumeRepository.save(resume);
+
+            // Automatically save tailored resume and docx to disk
+            String company = resume.getCompany() != null ? resume.getCompany() : "Unknown";
+            String position = resume.getPosition() != null ? resume.getPosition() : "Unknown";
+            String vacancyUrl = resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "";
+            int matchScore = resume.getMatchScore() != null ? resume.getMatchScore().intValue() : 0;
+            Map<String, Object> improvements = new HashMap<>();
+            storageService.saveApprovedResume(
+                company,
+                position,
+                tailoredText,
+                docxBytes,
+                vacancyUrl,
+                matchScore,
+                improvements,
+                resume.getOriginalText()
+            );
+
+            // Bold success output
+            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume tailored and saved successfully.");
 
             Map<String, Object> response = new HashMap<>();
             response.put("resumeId", resume.getId());

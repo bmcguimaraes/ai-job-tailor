@@ -57,34 +57,36 @@ public class ImproveService {
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.set("Authorization", "Bearer " + openaiApiKey);
 
-            String prompt = """
-                Given this resume and job description, suggest up to 6 specific improvements to make the resume better match the job.
-                Focus on:
-                1. Missing keywords/skills that could be added (you can add them naturally)
-                2. New bullet points with job-relevant functions/responsibilities that could be added or emphasized
-                3. Bullet point rewrites to align experience descriptions with the job's main functions
-                4. Sections that need emphasis or improvement
-                5. How these changes would impact the match score
-                
-                Missing keywords that should be considered: """ + String.join(", ", missingKeywords) + """
-                
-                Resume:
-                """ + resumeText + """
-                
-                Job Description:
-                """ + jobText + """
-                
-                Return a JSON object with:
-                - improvements (array of objects with: improvement, section, impact_score_increase (0-5), keywords_added (array), bullet_point_suggestion (for experience/function improvements), why)
-                
-                Example format:
-                {
-                  "improvements": [
-                    {"improvement": "Add Spring Boot to skills", "section": "Skills", "impact_score_increase": 3, "keywords_added": ["Spring Boot"], "bullet_point_suggestion": null, "why": "Required skill"},
-                    {"improvement": "Rewrite to emphasize team leadership", "section": "Experience", "impact_score_increase": 4, "keywords_added": ["led team", "coordination"], "bullet_point_suggestion": "Led a team of X developers to deliver Y project", "why": "Role requires team leadership"}
-                  ]
-                }
-                """;
+                        String prompt = """
+                                Given this resume and job description, suggest up to 6 specific improvements to make the resume better match the job.
+                                Focus on:
+                                1. Missing keywords/skills that could be added (you can add them naturally)
+                                2. New bullet points with job-relevant functions/responsibilities that could be added or emphasised
+                                3. Bullet point rewrites to align experience descriptions with the job's main functions
+                                4. Sections that need emphasis or improvement
+                                5. How these changes would impact the match score
+
+                                Use UK English spelling, grammar, and conventions throughout.
+
+                                Missing keywords that should be considered: """ + String.join(", ", missingKeywords) + """
+
+                                Resume:
+                                """ + resumeText + """
+
+                                Job Description:
+                                """ + jobText + """
+
+                                Return a JSON object with:
+                                - improvements (array of objects with: improvement, section, impact_score_increase (0-5), keywords_added (array), bullet_point_suggestion (for experience/function improvements), why)
+
+                                Example format:
+                                {
+                                    "improvements": [
+                                        {"improvement": "Add Spring Boot to skills", "section": "Skills", "impact_score_increase": 3, "keywords_added": ["Spring Boot"], "bullet_point_suggestion": null, "why": "Required skill"},
+                                        {"improvement": "Rewrite to emphasise team leadership", "section": "Experience", "impact_score_increase": 4, "keywords_added": ["led team", "coordination"], "bullet_point_suggestion": "Led a team of X developers to deliver Y project", "why": "Role requires team leadership"}
+                                    ]
+                                }
+                                """;
 
             Map<String, Object> payload = new HashMap<>();
             payload.put("model", "gpt-3.5-turbo");
@@ -149,6 +151,7 @@ public class ImproveService {
         Map<String, Object> result = new HashMap<>();
 
         try {
+
             if (openaiApiKey == null || openaiApiKey.isBlank()) {
                 result.put("tailoredText", resumeText);
                 result.put("deviationPercent", 0);
@@ -159,25 +162,37 @@ public class ImproveService {
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.set("Authorization", "Bearer " + openaiApiKey);
 
-            String keywordInstructions = selectedKeywords.isEmpty() 
-                    ? "Use your best judgment for keywords." 
-                    : "Prioritize adding these keywords naturally: " + String.join(", ", selectedKeywords);
+            // Default maxDeviationPercent to 25% if not set or out of range
+            int deviation = (maxDeviationPercent < 10 || maxDeviationPercent > 60) ? 25 : maxDeviationPercent;
 
-            String prompt = "Rewrite this resume to better match the job description while preserving facts and truthfulness.\n" +
-                    "You can change up to " + maxDeviationPercent + "% of the content.\n" +
-                    "\n" +
-                    "Guidelines:\n" +
-                    "1. Keep all facts, dates, and responsibilities accurate\n" +
-                    "2. Rephrase bullet points to use job-relevant language and keywords\n" +
-                    "3. Emphasize skills and experience that match the job\n" +
-                    "4. Maintain the same structure (name, experience, education, skills, etc.)\n" +
-                    "5. " + keywordInstructions + "\n" +
-                    "\n" +
-                    "Job Description:\n" + jobText + "\n" +
-                    "\n" +
-                    "Original Resume:\n" + resumeText + "\n" +
-                    "\n" +
-                    "Return ONLY the rewritten resume text, preserving structure and formatting.";
+            String keywordInstructions = selectedKeywords.isEmpty()
+                ? "Use your best judgment for keywords."
+                : "Prioritize adding these keywords naturally: " + String.join(", ", selectedKeywords);
+
+            String prompt = "You are a senior recruiter reviewing this resume. Rewrite it to better match the job description while preserving facts and truthfulness. " +
+                "You can change up to " + deviation + "% of the content.\n" +
+                "\n" +
+                "Guidelines:\n" +
+                "1. Keep all facts, dates, and responsibilities accurate.\n" +
+                "2. In the personal summary, naturally incorporate at least one main function from the job post.\n" +
+                "3. In the Skills & Abilities section, add or replace at least 2 missing skills/abilities from the job post.\n" +
+                "4. If job-relevant functions can be added to the most recent job experience, do so; if not, add or replace them in the first job experience.\n" +
+                "5. Rephrase bullet points to use job-relevant language and keywords.\n" +
+                "6. Emphasise skills and experience that match the job.\n" +
+                "7. Maintain the same structure (name, experience, education, skills, etc.).\n" +
+                "8. " + keywordInstructions + "\n" +
+                "9. Limit the tailored resume to one page maximum (about 500 words or 5-7 sections/paragraphs).\n" +
+                "10. If the original resume is shorter, do not exceed its length.\n" +
+                "11. Use UK English spelling, grammar, and conventions throughout.\n" +
+                "\n" +
+                "Job Description:\n" + jobText + "\n" +
+                "\n" +
+                "Original Resume:\n" + resumeText + "\n" +
+                "\n" +
+                "Return ONLY the rewritten resume text, preserving structure and formatting. Do not exceed one page.";
+
+            // Debug log for LLM prompt
+            System.out.println("[DEBUG][ImproveService] LLM Prompt:\n" + prompt);
 
             Map<String, Object> payload = new HashMap<>();
             payload.put("model", "gpt-3.5-turbo");
@@ -193,6 +208,9 @@ public class ImproveService {
 
             JsonNode respNode = objectMapper.readTree(resp.getBody());
             String tailoredText = respNode.at("/choices/0/message/content").asText();
+
+            // Debug log for LLM response
+            System.out.println("[DEBUG][ImproveService] LLM Response (tailoredText):\n" + tailoredText);
 
             // Estimate deviation
             int deviationPercent = estimateDeviation(resumeText, tailoredText);

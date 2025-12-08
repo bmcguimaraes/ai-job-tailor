@@ -109,6 +109,39 @@ public class JobDescriptionService {
                     .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
                     .timeout(10000)
                     .get();
+            // Extract top summary info (company, location, post date, applicants)
+            String company = null;
+            String location = null;
+            String postingDate = null;
+            String applicants = null;
+            // Try to find the top card (LinkedIn job top summary)
+            Element topCard = doc.selectFirst(".jobs-unified-top-card, .top-card-layout, .jobs-apply-button--top-card");
+            if (topCard == null) {
+                // Fallback: try the main card
+                topCard = doc.selectFirst(".jobs-details-top-card, .jobs-details__main-content");
+            }
+            if (topCard != null) {
+                // Company name
+                Element companyEl = topCard.selectFirst(".jobs-unified-top-card__company-name, .topcard__org-name-link, .topcard__org-name, .jobs-unified-top-card__company-info a, .jobs-unified-top-card__company-info span");
+                if (companyEl != null) {
+                    company = companyEl.text();
+                }
+                // Location
+                Element locEl = topCard.selectFirst("[class*=job-location], .jobs-unified-top-card__bullet, .topcard__flavor--bullet, .jobs-unified-top-card__primary-description");
+                if (locEl != null) {
+                    location = locEl.text();
+                }
+                // Posting date (e.g., '6 days ago')
+                Element dateEl = topCard.selectFirst("[class*=posted-date], .posted-time-ago__text, .jobs-unified-top-card__posted-date, .topcard__flavor--metadata");
+                if (dateEl != null) {
+                    postingDate = dateEl.text();
+                }
+                // Number of applicants
+                Element appEl = topCard.selectFirst("[class*=num-applicants], .num-applicants__caption, .jobs-unified-top-card__applicant-count");
+                if (appEl != null) {
+                    applicants = appEl.text();
+                }
+            }
             String jobText = extractMainText(doc);
             if (jobText == null || jobText.isBlank()) {
                 result.put("success", false);
@@ -119,7 +152,78 @@ public class JobDescriptionService {
             Map<String, Object> parsed = parseJobWithLLM(jobText);
             result.put("success", true);
             result.put("url", vacancyUrl);
-            result.putAll(parsed);
+            // Overwrite company and postingDate with top card values if found
+            if (company != null && !company.isBlank()) {
+                result.put("company", company);
+            } else if (parsed.containsKey("company")) {
+                result.put("company", parsed.get("company"));
+            }
+            if (location != null && !location.isBlank()) {
+                result.put("location_top", location);
+            }
+            if (postingDate != null && !postingDate.isBlank()) {
+                result.put("postingDate", postingDate);
+            }
+            if (applicants != null && !applicants.isBlank()) {
+                result.put("numApplicants", applicants);
+            }
+            // Add all other parsed fields except company and postingDate (already handled)
+            for (Map.Entry<String, Object> entry : parsed.entrySet()) {
+                String key = entry.getKey();
+                if (!key.equals("company") && !key.equals("postingDate")) {
+                    result.putIfAbsent(key, entry.getValue());
+                }
+            }
+
+            // --- Improvements Section ---
+            // 1. Top 5 missing keywords
+            java.util.List<String> missingKeywords = null;
+            if (result.containsKey("missingKeywords")) {
+                Object mk = result.get("missingKeywords");
+                if (mk instanceof java.util.List) {
+                    missingKeywords = (java.util.List<String>) mk;
+                } else if (mk instanceof String[]) {
+                    missingKeywords = java.util.Arrays.asList((String[]) mk);
+                }
+            }
+            java.util.List<String> topMissingKeywords = missingKeywords != null ? missingKeywords.stream().limit(5).toList() : java.util.Collections.emptyList();
+
+            // 2. 2/3 missing tech stacks
+            java.util.List<String> jobTechStack = null;
+            if (result.containsKey("techStack")) {
+                Object ts = result.get("techStack");
+                if (ts instanceof java.util.List) {
+                    jobTechStack = (java.util.List<String>) ts;
+                } else if (ts instanceof String[]) {
+                    jobTechStack = java.util.Arrays.asList((String[]) ts);
+                }
+            }
+            java.util.List<String> resumeTechStack = java.util.Collections.emptyList(); // TODO: Extract from resume if available
+            java.util.List<String> missingTechStack = jobTechStack != null ? jobTechStack.stream().filter(t -> !resumeTechStack.contains(t)).limit(3).toList() : java.util.Collections.emptyList();
+
+            // 3. 2/3 crucial missing main functions
+            java.util.List<String> jobMainFunctions = null;
+            if (result.containsKey("mainFunctions")) {
+                Object mf = result.get("mainFunctions");
+                if (mf instanceof java.util.List) {
+                    jobMainFunctions = (java.util.List<String>) mf;
+                } else if (mf instanceof String[]) {
+                    jobMainFunctions = java.util.Arrays.asList((String[]) mf);
+                }
+            }
+            java.util.List<String> resumeFunctions = java.util.Collections.emptyList(); // TODO: Extract from resume if available
+            java.util.List<String> missingFunctions = jobMainFunctions != null ? jobMainFunctions.stream().filter(f -> !resumeFunctions.contains(f)).limit(3).toList() : java.util.Collections.emptyList();
+
+            Map<String, Object> improvements = new HashMap<>();
+            improvements.put("topMissingKeywords", topMissingKeywords);
+            improvements.put("missingTechStack", missingTechStack);
+            improvements.put("missingMainFunctions", missingFunctions);
+            // Add requirements from job description if present
+            if (result.containsKey("requirements")) {
+                improvements.put("requirements", result.get("requirements"));
+            }
+            result.put("improvements_section", improvements);
+
             return result;
         } catch (Exception e) {
             result.put("success", false);
