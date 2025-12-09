@@ -75,6 +75,17 @@ public class ResumeController {
             System.out.println("[ResumeController] File size: " + fileSize + " bytes");
             System.out.println("[ResumeController] Detected MIME type: " + mimeType);
 
+            // If DOCX, save to /Users/brunoguimaraes/Documents/JA/ for template-based tailoring
+            if (filename != null && filename.toLowerCase().endsWith(".docx")) {
+                java.nio.file.Path jaFolder = java.nio.file.Paths.get(System.getProperty("user.home"), "Documents", "JA");
+                java.nio.file.Files.createDirectories(jaFolder);
+                java.nio.file.Path destPath = jaFolder.resolve(filename);
+                try (java.io.InputStream in = file.getInputStream()) {
+                    java.nio.file.Files.copy(in, destPath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                }
+                System.out.println("[ResumeController] DOCX file saved to: " + destPath);
+            }
+
             // Reset input stream for parsing (since detect may consume it)
             String text = tika.parseToString(file.getInputStream());
             System.out.println("[ResumeController] Extracted resume text:\n" + text);
@@ -83,7 +94,7 @@ public class ResumeController {
             Map<String, Object> resumeAnalysis = matchingService.analyzeResumeText(text);
             Resume saved = resumeRepository.save(r);
             // Bold success output
-            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume uploaded and analyzed successfully.");
+            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume file uploaded, parsed, and initial analysis completed.");
             return ResponseEntity.ok(Map.of(
                 "id", saved.getId(),
                 "filename", saved.getFilename(),
@@ -94,6 +105,7 @@ public class ResumeController {
                 "mimeType", mimeType
             ));
         } catch (Exception e) {
+            System.out.println("\u001B[1m[FAIL]\u001B[0m Resume upload failed: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
         }
     }
@@ -160,6 +172,7 @@ public class ResumeController {
             String[] mainFunctions = mainFunctionsObj instanceof String[] ? (String[]) mainFunctionsObj : new String[]{};
             int yearsRequired = getIntFromMap(jobExtraction, "yearsOfExperience");
             String position = (String) jobExtraction.getOrDefault("position", "Unknown");
+            String company = (String) jobExtraction.getOrDefault("company", "UnknownCompany");
 
             Map<String, Object> scoreResult = matchingService.computeScore(
                     resume.getOriginalText(), 
@@ -176,30 +189,49 @@ public class ResumeController {
             @SuppressWarnings("unchecked")
             List<String> missingKeywords = missingKeywordsObj instanceof List ? (List<String>) missingKeywordsObj : new ArrayList<>();
 
-            // 3. Generate improvements preview
-            Map<String, Object> improvementsResult = improveService.generateImprovements(
+                // 3. Generate improvements preview
+                Map<String, Object> improvementsResult = improveService.generateImprovements(
                     resume.getOriginalText(),
                     jobExtraction.toString(),
                     missingKeywords,
                     score
-            );
+                );
 
-            // 4. Save to resume for later tailoring
-            resume.setVacancyUrl(vacancyUrl);
-            resume.setCompany((String) jobExtraction.getOrDefault("company", "Unknown"));
-            resume.setPosition(position);
-            resume.setMatchScore((double) score);
-            resumeRepository.save(resume);
+                // Save improvements JSON to resume
+                String improvementsJson = new com.fasterxml.jackson.databind.ObjectMapper().writeValueAsString(improvementsResult);
+                resume.setImprovementsJson(improvementsJson);
 
-            // 5. Return combined analysis
-            Map<String, Object> response = new HashMap<>();
-            response.put("resumeId", resume.getId());
-            response.put("jobExtraction", jobExtraction);
-            response.put("matchingScore", scoreResult);
-            response.put("improvements", improvementsResult);
-            response.put("ready_for_tailoring", true);
+                // 4. Save to resume for later tailoring
+                resume.setVacancyUrl(vacancyUrl);
+                resume.setPosition(position);
+                resume.setCompany(company); // Save the company name
+                resume.setMatchScore((double) score);
+                resumeRepository.save(resume);
 
-            return ResponseEntity.ok(response);
+                // 5. Return combined analysis
+                Map<String, Object> response = new HashMap<>();
+                response.put("resumeId", resume.getId());
+                response.put("jobExtraction", jobExtraction);
+                response.put("matchingScore", scoreResult);
+                response.put("improvements", improvementsResult);
+                response.put("ready_for_tailoring", true);
+
+                // Print only jobExtraction success and actionable improvements to terminal
+                boolean extractionSuccess = (Boolean) jobExtraction.getOrDefault("success", false);
+                System.out.println("\n==============================");
+                System.out.println("[ANALYZE RESULT]");
+                System.out.println("Job Extraction Success: " + extractionSuccess);
+                // Print actionable improvements for tailoring
+                System.out.println("LLM Improvements for Tailoring:");
+                if (improvementsResult != null) {
+                    System.out.println("skillsAndAbilitiesToAdd: " + improvementsResult.getOrDefault("skillsAndAbilitiesToAdd", "[]"));
+                    System.out.println("bulletPointSuggestions: " + improvementsResult.getOrDefault("bulletPointSuggestions", "[]"));
+                    System.out.println("personalSummarySuggestions: " + improvementsResult.getOrDefault("personalSummarySuggestions", "[]"));
+                    System.out.println("selectedKeywords: " + improvementsResult.getOrDefault("selectedKeywords", "[]"));
+                }
+                System.out.println("==============================\n");
+                System.out.println("\u001B[1m[SUCCESS]\u001B[0m Job post analyzed successfully.");
+                return ResponseEntity.ok(response);
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
@@ -207,94 +239,123 @@ public class ResumeController {
     }
 
     @PostMapping("/tailor/{id}")
-    public ResponseEntity<?> tailorResume(
-            @PathVariable("id") Long resumeId,
-            @RequestBody Map<String, Object> request) {
-
+    public ResponseEntity<?> tailorResume(@PathVariable("id") Long resumeId) {
         if (resumeId == null) {
+            System.out.println("\u001B[1m[FAIL]\u001B[0m Tailoring failed: resumeId must not be null");
             return ResponseEntity.badRequest().body(Map.of("error", "resumeId must not be null"));
         }
         Resume resume = resumeRepository.findById(resumeId).orElse(null);
         if (resume == null) {
+            System.out.println("\u001B[1m[FAIL]\u001B[0m Tailoring failed: resume not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "resume not found"));
         }
-
+        java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newSingleThreadExecutor();
         try {
-            Object selectedKeywordsObj = request.get("selectedKeywords");
-            @SuppressWarnings("unchecked")
-            List<String> selectedKeywords = selectedKeywordsObj instanceof List ? (List<String>) selectedKeywordsObj : new ArrayList<>();
-            int maxDeviation = getIntFromMap(request, "maxDeviationPercent");
-
-            String jobText = resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "No job description";
-
-            // Generate tailored resume
-            Map<String, Object> tailoringResult = improveService.generateTailoredResume(
-                    resume.getOriginalText(),
-                    jobText,
-                    selectedKeywords,
-                    maxDeviation
-            );
-
-            String tailoredText = (String) tailoringResult.getOrDefault("tailoredText", resume.getOriginalText());
-
-            // Try to get original DOCX file from upload (if available)
-            byte[] originalDocxBytes = null;
-            try {
-                String originalFilename = resume.getFilename();
-                if (originalFilename != null && originalFilename.toLowerCase().endsWith(".docx")) {
-                    java.nio.file.Path originalPath = java.nio.file.Paths.get(System.getProperty("user.home"), "Documents", "JA", originalFilename);
-                    if (java.nio.file.Files.exists(originalPath)) {
-                        originalDocxBytes = java.nio.file.Files.readAllBytes(originalPath);
+            java.util.concurrent.Future<ResponseEntity<?>> future = executor.submit(() -> {
+                try {
+                    System.out.println("[IN-PROGRESS] Starting resume tailoring...");
+                    // --- Begin tailoring logic ---
+                    List<String> selectedKeywords = new ArrayList<>();
+                    String jobText = resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "No job description";
+                    List<String> skillsAndAbilitiesToAdd = new ArrayList<>();
+                    List<String> bulletPointSuggestions = new ArrayList<>();
+                    List<String> personalSummarySuggestions = new ArrayList<>();
+                    try {
+                        String improvementsJson = resume.getImprovementsJson();
+                        if (improvementsJson != null && !improvementsJson.isBlank()) {
+                            com.fasterxml.jackson.databind.JsonNode node = new com.fasterxml.jackson.databind.ObjectMapper().readTree(improvementsJson);
+                            if (node.has("selectedKeywords")) {
+                                node.get("selectedKeywords").forEach(n -> selectedKeywords.add(n.asText()));
+                            }
+                            if (node.has("skillsAndAbilitiesToAdd")) {
+                                node.get("skillsAndAbilitiesToAdd").forEach(n -> skillsAndAbilitiesToAdd.add(n.asText()));
+                            }
+                            if (node.has("bulletPointSuggestions")) {
+                                node.get("bulletPointSuggestions").forEach(n -> bulletPointSuggestions.add(n.asText()));
+                            }
+                            if (node.has("personalSummarySuggestions")) {
+                                node.get("personalSummarySuggestions").forEach(n -> personalSummarySuggestions.add(n.asText()));
+                            }
+                        }
+                    } catch (Exception e) {
+                        // If improvementsJson is missing or malformed, fallback to empty lists
                     }
+                    // Debug log improvements lists
+                    System.out.println("[DEBUG] skillsAndAbilitiesToAdd: " + skillsAndAbilitiesToAdd);
+                    System.out.println("[DEBUG] bulletPointSuggestions: " + bulletPointSuggestions);
+                    System.out.println("[DEBUG] personalSummarySuggestions: " + personalSummarySuggestions);
+                    System.out.println("[DEBUG] selectedKeywords: " + selectedKeywords);
+
+                    System.out.println("[IN-PROGRESS] Generating AI edit plan...");
+                    // Generate an edit plan from the AI
+                    com.fasterxml.jackson.databind.JsonNode editPlan = improveService.generateEditPlan(
+                        resume.getOriginalText(),
+                        jobText,
+                        skillsAndAbilitiesToAdd,
+                        bulletPointSuggestions,
+                        personalSummarySuggestions
+                    );
+                    System.out.println("[IN-PROGRESS] AI edit plan generation complete.");
+                    System.out.println("[DEBUG] Generated Edit Plan: " + editPlan.toPrettyString());
+
+
+                    // --- New Folder and Metadata Logic ---
+                    System.out.println("[IN-PROGRESS] Creating application-specific folder and metadata...");
+                    String company = resume.getCompany() != null ? resume.getCompany().replaceAll("[^a-zA-Z0-9.-]", "_") : "UnknownCompany";
+                    String position = resume.getPosition() != null ? resume.getPosition().replaceAll("[^a-zA-Z0-9.-]", "_") : "UnknownPosition";
+                    String folderName = company + "_" + position;
+                    java.nio.file.Path appFolder = java.nio.file.Paths.get(System.getProperty("user.home"), "Documents", "JA", folderName);
+                    java.nio.file.Files.createDirectories(appFolder);
+
+                    // Create metadata file with expanded details
+                    String metadataContent = "Company: " + (resume.getCompany() != null ? resume.getCompany() : "N/A") + "\n" +
+                                             "Role: " + (resume.getPosition() != null ? resume.getPosition() : "N/A") + "\n" +
+                                             "Applied Date: " + java.time.format.DateTimeFormatter.ISO_DATE.format(java.time.LocalDate.now()) + "\n" +
+                                             "State: waiting for response\n" +
+                                             "Contact: \n" + // Leave blank for user to fill
+                                             "Vacancy URL: " + (resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "N/A");
+                    java.nio.file.Path metadataPath = appFolder.resolve("metadata.txt");
+                    java.nio.file.Files.writeString(metadataPath, metadataContent);
+                    System.out.println("[IN-PROGRESS] Application folder and metadata.txt created at: " + appFolder);
+                    // --- End New Folder Logic ---
+
+                    System.out.println("[IN-PROGRESS] Updating DOCX file based on the edit plan...");
+                    // Update the DOCX file, saving it in the new application-specific folder
+                    java.nio.file.Path tailoredPath = docxService.updateDocx(
+                        resume.getFilename(),
+                        editPlan, // Pass the edit plan
+                        appFolder // Pass the new folder path
+                    );
+                    System.out.println("[IN-PROGRESS] DOCX file update complete.");
+
+                    System.out.println("[IN-PROGRESS] Saving tailored resume path...");
+                    resume.setTailoredResumePath(tailoredPath.toString());
+                    resumeRepository.save(resume);
+                    System.out.println("[IN-PROGRESS] Tailored resume path saved.");
+                    // --- End tailoring logic ---
+                    System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume tailored successfully.");
+                    return ResponseEntity.ok(Map.of("message", "Resume tailored successfully", "editPlan", editPlan));
+                } catch (Exception e) {
+                    System.out.println("\u001B[1m[FAIL]\u001B[0m Resume tailoring failed: " + e.getMessage());
+                    e.printStackTrace();
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Resume tailoring failed: " + e.getMessage());
                 }
-            } catch (Exception e) {
-                originalDocxBytes = null;
+            });
+
+            try {
+                return future.get(2, java.util.concurrent.TimeUnit.MINUTES); // Increased timeout to 2 minutes
+            } catch (java.util.concurrent.TimeoutException e) {
+                future.cancel(true);
+                System.out.println("\u001B[1m[FAIL]\u001B[0m Resume tailoring failed: process exceeded 2 minute timeout.");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Resume tailoring failed: process exceeded 2 minute timeout.");
+            } catch (InterruptedException | java.util.concurrent.ExecutionException e) {
+                future.cancel(true);
+                System.out.println("\u001B[1m[FAIL]\u001B[0m Resume tailoring failed: " + e.getMessage());
+                e.printStackTrace();
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Resume tailoring failed: " + e.getMessage());
             }
-
-            byte[] docxBytes;
-            if (originalDocxBytes != null) {
-                try (java.io.ByteArrayInputStream in = new java.io.ByteArrayInputStream(originalDocxBytes)) {
-                    docxBytes = docxService.generateDocxWithStyle(tailoredText, in);
-                }
-            } else {
-                docxBytes = docxService.generateDocx(tailoredText);
-            }
-
-            // Save tailored version to DB
-            resume.setTailoredText(tailoredText);
-            resumeRepository.save(resume);
-
-            // Automatically save tailored resume and docx to disk
-            String company = resume.getCompany() != null ? resume.getCompany() : "Unknown";
-            String position = resume.getPosition() != null ? resume.getPosition() : "Unknown";
-            String vacancyUrl = resume.getVacancyUrl() != null ? resume.getVacancyUrl() : "";
-            int matchScore = resume.getMatchScore() != null ? resume.getMatchScore().intValue() : 0;
-            Map<String, Object> improvements = new HashMap<>();
-            storageService.saveApprovedResume(
-                company,
-                position,
-                tailoredText,
-                docxBytes,
-                vacancyUrl,
-                matchScore,
-                improvements,
-                resume.getOriginalText()
-            );
-
-            // Bold success output
-            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume tailored and saved successfully.");
-
-            Map<String, Object> response = new HashMap<>();
-            response.put("resumeId", resume.getId());
-            response.put("tailoredText", tailoredText);
-            response.put("deviationPercent", tailoringResult.getOrDefault("deviationPercent", 0));
-            response.put("docxBase64", Base64.getEncoder().encodeToString(docxBytes));
-            response.put("docxFileName", "tailored_resume.docx");
-
-            return ResponseEntity.ok(response);
-
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
+        } finally {
+            executor.shutdownNow();
         }
     }
 
@@ -334,6 +395,8 @@ public class ResumeController {
 
             resume.setApplied(true);
             resumeRepository.save(resume);
+
+            System.out.println("\u001B[1m[SUCCESS]\u001B[0m Resume approved and saved successfully.");
 
             return ResponseEntity.ok(storageResult);
 

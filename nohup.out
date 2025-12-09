@@ -1,0 +1,1495 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/Users/brunoguimaraes/.m2/wrapper/dists/apache-maven-3.9.6/a53741d1/lib/jansi-2.4.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/Users/brunoguimaraes/.m2/wrapper/dists/apache-maven-3.9.6/a53741d1/lib/guava-32.0.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.bg:resume-analyser >-----------------------
+[INFO] Building resume-analyser 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.4.12:run (default-cli) > test-compile @ resume-analyser >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ resume-analyser ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ resume-analyser ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ resume-analyser ---
+[INFO] skip non existing resourceDirectory /Users/brunoguimaraes/Repo/ai-job-tailor/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ resume-analyser ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.4.12:run (default-cli) < test-compile @ resume-analyser <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.4.12:run (default-cli) @ resume-analyser ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-08T23:47:02.924Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-08T23:47:02.925Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-08T23:47:04.047Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-08T23:47:04.232Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 1.405 seconds (process running for 1.537)
+[ResumeController] Uploaded file: BrunoGuimaraes_CVtest2.docx
+[ResumeController] File size: 11604 bytes
+[ResumeController] Detected MIME type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+[ResumeController] Extracted resume text:
+
+Bruno Guimarães, 
+Software developer
+Porto, Portugal | Phone: +351 936269168 | bmcguimaraes@gmail.com
+Personal Summary
+
+Software engineer with 3 years of backend development experience, proficient in Java and PL/SQL. Optimised batch processes reducing runtime by 30% and refined database queries to boost performance by 30%. Passionate about solving complex technical challenges and mentoring team members to accelerate onboarding. Certified in Java (OCA) and Azure Fundamentals (AZ-900), with growing expertise in C#. Collaborative team player experienced in agile environments, actively seeking mid-level backend roles in the UK.
+Skills & Abilities
+
+Languages: Java, Python, JavaScript
+Frameworks: Spring Boot, React, Node.js
+Technologies: Docker, Azure, REST APIs
+Tools: Git, Maven, Jenkins
+Databases: PostgreSQL, MongoDB
+Mentoring and team leadership, performance tuning, agile development and CI/CD, effective communication, problem solving.
+Experience
+
+Software Developer at Deloitte, Porto	Jul 22 - Present
+      Contributed to multiple agile projects, collaborating closely with crossfunctional teams to deliver efficient backend solutions. Managed tasks and tracked progress, focusing on optimising performance and enhancing system functionality. 
+Enhanced batch chain performance, reducing the time spent on routine operations by 27% and significantly improving overall processing efficiency and throughput.
+Streamlined error handling processes, leading to a 54% reduction in issue resolution time within the first 6 months.
+Mentored new trainees in backend development and client communication, helping them develop technical skills while improving their ability to manage client relationships and understand project requirements. 
+Collaborated on complex backend implementations using PLSQL and TIA, refining database performance, delivering features through JIRA and GitHub.
+IT Intern / Warehouse Logistics at Argon Group, Porto	Jun 21 – Jun 22
+      During my internship in the IT department, I focused on backend systems, web technologies, and the development of client-facing applications. I also worked with the warehouse logistics team to gain valuable insights into the integration of IT systems with business operations.
+Developed a web-based application that allowed clients to select products and accessories, arrange them on a customizable canva, and create stacked configurations. The app generated a PDF with pricing and delivery time expectations, improving customer experience.
+Worked closely with the warehouse logistics team to enhance inventory management systems, prioritise orders, and ensure timely and accurate stock tracking for smooth business operations.
+Gained hands-on experience with key web technologies such as HTML, CSS, JS, and MongoDB, improving my understanding of web application development, backend integration, and how technology supports operational workflows.
+Education
+
+Porto Tech Institute (ISEP), Porto	2020
+Bachelor’s in System Engineering
+
+
+[1m[SUCCESS][0m Resume uploaded and analyzed successfully.
+
+==============================
+[ANALYZE RESULT]
+Job Extraction Success: true
+LLM Improvements for Tailoring:
+------------------ COPY BELOW ------------------
+[{keywordsAdded=[Python, TypeScript, React], bulletPointSuggestion=null, why=Missing required skills for the job, section=Skills, improvement=Add Python, TypeScript and React to skills, impactScoreIncrease=4},{keywordsAdded=[agentic systems, full stack], bulletPointSuggestion=null, why=Aligning with main functions of the job, section=Skills, improvement=Add agentic systems and full stack to skills, impactScoreIncrease=3},{keywordsAdded=[designing backend systems, integrating with LLM driven workflows, agentic pipelines], bulletPointSuggestion=Designed backend systems that seamlessly integrated with LLM driven workflows and agentic pipelines to enhance system intelligence and efficiency., why=Directly aligns with the main functions of the job, section=Experience, improvement=Rewrite to emphasise designing backend systems that integrate with LLM driven workflows and agentic pipelines, impactScoreIncrease=5},{keywordsAdded=[building full stack features, Python, TypeScript, React], bulletPointSuggestion=Built and shipped high velocity full stack features using Python, TypeScript, and React to enhance user experience and system functionality., why=Matches the required tech stack and main functions of the job, section=Experience, improvement=Add bullet point about building and shipping high velocity full stack features using Python, TypeScript and React, impactScoreIncrease=4},{keywordsAdded=[AI, agentic systems], bulletPointSuggestion=null, why=Highlighting relevant expertise for the job, section=Personal Summary, improvement=Emphasise experience in AI and agentic systems in the personal summary, impactScoreIncrease=2}]
+------------------ END COPY ------------------
+==============================
+
+[DEBUG][ImproveService] LLM Prompt:
+You are a senior recruiter reviewing this resume. Rewrite it to better match the job description while preserving facts and truthfulness. You must not change more than 35% of the actual content. Only make substantive changes, not formatting, whitespace, or minor edits. If unsure, change less.
+
+Guidelines:
+1. Output the entire resume using markdown only.
+   - Use # for the main name/title, ## for section headings (e.g. ## Skills), and ### for job titles.
+   - Use **bold** for section titles and important keywords.
+   - Use * for bullet points.
+   - Keep all spacing and order as in the original.
+2. Do not output any text outside the markdown-formatted resume.
+3. In the Skills & Abilities section, add or replace at least 2 missing skills/abilities from the job post.
+4. In Experience, add or rewrite bullet points to match the job's main functions.
+5. Maintain the same structure (name, experience, education, skills, etc.). Structure is extremely important: the resume must remain a single-page document, with clear sections and logical flow.
+6. 7. Limit the tailored resume to one page maximum (about 500 words or 5-7 sections/paragraphs).
+8. If the original resume is shorter, do not exceed its length.
+9. Use UK English spelling, grammar, and conventions throughout.
+10. Preserve all formatting: use headings for sections, bullet points for lists, bold for section titles, and keep spacing as in the original.
+11. Example markdown output:
+# John Doe
+## Skills
+- Java
+- Python
+## Experience
+**Software Engineer at X**
+*Jan 2020 - Present*
+- Developed...
+
+Job Description:
+https://www.linkedin.com/jobs/view/4340772720/?alternateChannel=search
+
+Original Resume:
+
+Bruno Guimarães, 
+Software developer
+Porto, Portugal | Phone: +351 936269168 | bmcguimaraes@gmail.com
+Personal Summary
+
+Software engineer with 3 years of backend development experience, proficient in Java and PL/SQL. Optimised batch processes reducing runtime by 30% and refined database queries to boost performance by 30%. Passionate about solving complex technical challenges and mentoring team members to accelerate onboarding. Certified in Java (OCA) and Azure Fundamentals (AZ-900), with growing expertise in C#. Collaborative team player experienced in agile environments, actively seeking mid-level backend roles in the UK.
+Skills & Abilities
+
+Languages: Java, Python, JavaScript
+Frameworks: Spring Boot, React, Node.js
+Technologies: Docker, Azure, REST APIs
+Tools: Git, Maven, Jenkins
+Databases: PostgreSQL, MongoDB
+Mentoring and team leadership, performance tuning, agile development and CI/CD, effective communication, problem solving.
+Experience
+
+Software Developer at Deloitte, Porto	Jul 22 - Present
+      Contributed to multiple agile projects, collaborating closely with crossfunctional teams to deliver efficient backend solutions. Managed tasks and tracked progress, focusing on optimising performance and enhancing system functionality. 
+Enhanced batch chain performance, reducing the time spent on routine operations by 27% and significantly improving overall processing efficiency and throughput.
+Streamlined error handling processes, leading to a 54% reduction in issue resolution time within the first 6 months.
+Mentored new trainees in backend development and client communication, helping them develop technical skills while improving their ability to manage client relationships and understand project requirements. 
+Collaborated on complex backend implementations using PLSQL and TIA, refining database performance, delivering features through JIRA and GitHub.
+IT Intern / Warehouse Logistics at Argon Group, Porto	Jun 21 – Jun 22
+      During my internship in the IT department, I focused on backend systems, web technologies, and the development of client-facing applications. I also worked with the warehouse logistics team to gain valuable insights into the integration of IT systems with business operations.
+Developed a web-based application that allowed clients to select products and accessories, arrange them on a customizable canva, and create stacked configurations. The app generated a PDF with pricing and delivery time expectations, improving customer experience.
+Worked closely with the warehouse logistics team to enhance inventory management systems, prioritise orders, and ensure timely and accurate stock tracking for smooth business operations.
+Gained hands-on experience with key web technologies such as HTML, CSS, JS, and MongoDB, improving my understanding of web application development, backend integration, and how technology supports operational workflows.
+Education
+
+Porto Tech Institute (ISEP), Porto	2020
+Bachelor’s in System Engineering
+
+
+
+Return ONLY the rewritten resume in markdown. Do not exceed one page.
+[DEBUG][ImproveService] LLM Response (tailoredText):
+# Bruno Guimarães
+## Skills
+- **Languages:** Java, Python, JavaScript, C#
+- **Frameworks:** Spring Boot, React, Node.js
+- **Technologies:** Docker, Azure, REST APIs
+- **Tools:** Git, Maven, Jenkins
+- **Databases:** PostgreSQL, MongoDB
+- **Mentoring and Team Leadership**
+- **Performance Tuning**
+- **Agile Development and CI/CD**
+- **Effective Communication**
+- **Problem Solving**
+- **Collaborative Team Player**
+
+## Experience
+### Software Developer at Deloitte, Porto
+*Jul 2022 - Present*
+- Spearheaded agile projects, collaborating with cross-functional teams to deliver high-performance backend solutions, focusing on system optimisation and enhanced functionality.
+- Achieved a 27% reduction in routine operations time by enhancing batch chain performance, significantly boosting processing efficiency.
+- Implemented streamlined error handling processes, reducing issue resolution time by 54% within the first 6 months.
+- Mentored new backend developers and improved client communication, enhancing technical skills and client relationship management.
+- Contributed to complex backend implementations using PLSQL and TIA, refining database performance and delivering features through JIRA and GitHub.
+
+### IT Intern / Warehouse Logistics at Argon Group, Porto
+*Jun 2021 – Jun 2022*
+- Developed a client-facing web application enabling product selection and customisation, improving customer experience and generating pricing estimates efficiently.
+- Collaborated with warehouse logistics to enhance inventory management systems, prioritise orders, and ensure accurate stock tracking for operational efficiency.
+- Acquired hands-on experience with HTML, CSS, JS, and MongoDB, enhancing web application development skills and backend integration knowledge.
+
+## Education
+Bachelor’s in System Engineering
+Porto Tech Institute (ISEP), Porto
+2020
+[1m[SUCCESS][0m Resume tailored and saved successfully.
+2025-12-09T00:00:11.141Z  WARN 86778 --- [resume-analyser] [      Thread-12] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:00:11.188Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:00:11.189Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:00:11.376Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:00:11.414Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.233 seconds (process running for 788.719)
+2025-12-09T00:05:02.465Z  WARN 86778 --- [resume-analyser] [l-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=3m21s33ms).
+2025-12-09T00:05:50.548Z  WARN 86778 --- [resume-analyser] [      Thread-14] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:05:50.579Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:05:50.579Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:05:50.717Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:05:50.717Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:05:50.723Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token(s), misplaced construct(s)
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:11) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:06:07.273Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:06:07.273Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:06:07.396Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:06:07.396Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:06:07.398Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	The type DocxService is already defined
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:11) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:06:23.964Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:06:23.965Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:06:24.091Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: No qualifying bean of type 'com.bg.resume_analyser.service.DocxService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-12-09T00:06:24.091Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:06:24.097Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 4 of constructor in com.bg.resume_analyser.controller.ResumeController required a bean of type 'com.bg.resume_analyser.service.DocxService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.bg.resume_analyser.service.DocxService' in your configuration.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:06:39.647Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:06:39.647Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:06:39.803Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: No qualifying bean of type 'com.bg.resume_analyser.service.DocxService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-12-09T00:06:39.803Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:06:39.806Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 4 of constructor in com.bg.resume_analyser.controller.ResumeController required a bean of type 'com.bg.resume_analyser.service.DocxService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.bg.resume_analyser.service.DocxService' in your configuration.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:06:47.279Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:06:47.279Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:06:47.388Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@288d4dfa] failed
+2025-12-09T00:06:47.388Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:06:47.390Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@288d4dfa] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: java.lang.NoClassDefFoundError: DocxService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:2985) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2354) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: DocxService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 27 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:06:54.860Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:06:54.860Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:06:54.976Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: No qualifying bean of type 'com.bg.resume_analyser.service.DocxService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-12-09T00:06:54.976Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:06:54.978Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 4 of constructor in com.bg.resume_analyser.controller.ResumeController required a bean of type 'com.bg.resume_analyser.service.DocxService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.bg.resume_analyser.service.DocxService' in your configuration.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:07:17.588Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:07:17.589Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:07:17.718Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+2025-12-09T00:07:17.718Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:07:17.720Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bg.resume_analyser.service.DocxService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@68bdd4f3]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: IOException
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.14.jar:6.2.14]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: IOException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 43 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:07:27.218Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:07:27.218Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:07:27.346Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@34a441f6] failed
+2025-12-09T00:07:27.346Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:07:27.348Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@34a441f6] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: java.lang.NoClassDefFoundError: DocxService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:2985) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2354) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: DocxService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 27 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:08:51.930Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:08:51.930Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:08:52.084Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:08:52.084Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:08:52.089Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token "}", { expected after this token
+	Syntax error on token "catch", Identifier expected
+	Syntax error on token "}", delete this token
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:11) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:09:02.592Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:09:02.592Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:09:02.722Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@44d6ee36] failed
+2025-12-09T00:09:02.722Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:09:02.724Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumeController': Resolution of declared constructors on bean Class [com.bg.resume_analyser.controller.ResumeController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@44d6ee36] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: java.lang.NoClassDefFoundError: DocxService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:2985) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2354) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: DocxService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 27 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:09:29.386Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:09:29.386Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:09:29.523Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+2025-12-09T00:09:29.524Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:09:29.526Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bg.resume_analyser.service.DocxService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@424aa013]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: InputStream
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.14.jar:6.2.14]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: InputStream
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 43 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:10:42.597Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:10:42.597Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:10:42.731Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+2025-12-09T00:10:42.732Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:10:42.734Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bg.resume_analyser.service.DocxService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54f7f25d]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: InputStream
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.14.jar:6.2.14]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: InputStream
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 43 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:10:48.203Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:10:48.203Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:10:48.335Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+2025-12-09T00:10:48.335Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:10:48.337Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bg.resume_analyser.service.DocxService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@3642cd6]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: InputStream
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.14.jar:6.2.14]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: InputStream
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 43 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:10:58.829Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:10:58.829Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:10:58.953Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+2025-12-09T00:10:58.954Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:10:58.955Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bg.resume_analyser.service.DocxService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@70b0d5d2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: InputStream
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.14.jar:6.2.14]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: InputStream
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:547) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 43 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:11:13.492Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:11:13.492Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:11:13.609Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:11:13.609Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:11:13.611Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+	Duplicate method insertTailoredTextInSections(byte[], String, List<String>) in type DocxService
+	para cannot be resolved
+	para cannot be resolved to a variable
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "Finally" to complete BlockStatements
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method insertTailoredTextInSections(byte[], String, List<String>) in type DocxService
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:12:06.513Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:12:06.513Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:12:06.644Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:12:06.645Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:12:06.647Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+	Syntax error on token ".", { expected
+	Syntax error on token "catch", Identifier expected
+	Syntax error on token "}", delete this token
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:12:35.311Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:12:35.311Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:12:35.459Z  WARN 86778 --- [resume-analyser] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+2025-12-09T00:12:35.459Z  WARN 86778 --- [resume-analyser] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-09T00:12:35.461Z ERROR 86778 --- [resume-analyser] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'resumeController' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/controller/ResumeController.class]: Unsatisfied dependency expressed through constructor parameter 4: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.14.jar:6.2.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.12.jar:3.4.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.12.jar:3.4.12]
+	at com.bg.resume_analyser.ResumeAnalyserApplication.main(ResumeAnalyserApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.12.jar:3.4.12]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'docxService' defined in file [/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes/com/bg/resume_analyser/service/DocxService.class]: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bg.resume_analyser.service.DocxService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123) ~[spring-beans-6.2.14.jar:6.2.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+	Syntax error on token ".", { expected
+	Syntax error on token "catch", Identifier expected
+	Syntax error on token "}", delete this token
+	Duplicate method generateDocxFromMarkdown(String) in type DocxService
+
+	at com.bg.resume_analyser.service.DocxService.<init>(DocxService.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.2.14.jar:6.2.14]
+	... 37 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:12:53.023Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:12:53.023Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:12:53.179Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:12:53.217Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.199 seconds (process running for 1379.497)
+2025-12-09T00:13:02.704Z  WARN 86778 --- [resume-analyser] [      Thread-25] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:13:02.749Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:13:02.749Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:13:02.886Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:13:02.925Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.183 seconds (process running for 1389.205)
+2025-12-09T00:14:50.307Z  WARN 86778 --- [resume-analyser] [     Thread-188] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:14:50.341Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:14:50.341Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:14:50.489Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:14:50.534Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.199 seconds (process running for 1496.814)
+2025-12-09T00:20:10.892Z  WARN 86778 --- [resume-analyser] [     Thread-198] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:20:10.921Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:20:10.921Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:20:11.079Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:20:11.124Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.209 seconds (process running for 1817.404)
+2025-12-09T00:21:08.082Z  WARN 86778 --- [resume-analyser] [     Thread-208] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:21:08.120Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:21:08.120Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:21:08.266Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:21:08.308Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.195 seconds (process running for 1874.588)
+2025-12-09T00:21:42.045Z  WARN 86778 --- [resume-analyser] [     Thread-218] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:21:42.082Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:21:42.082Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:21:42.226Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:21:42.269Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.193 seconds (process running for 1908.55)
+2025-12-09T00:21:55.799Z  WARN 86778 --- [resume-analyser] [     Thread-228] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:21:55.843Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:21:55.843Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:21:56.019Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:21:56.056Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.22 seconds (process running for 1922.336)
+2025-12-09T00:22:13.616Z  WARN 86778 --- [resume-analyser] [     Thread-238] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.4.12)
+
+2025-12-09T00:22:13.660Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Starting ResumeAnalyserApplication using Java 25.0.1 with PID 86778 (/Users/brunoguimaraes/Repo/ai-job-tailor/target/classes started by brunoguimaraes in /Users/brunoguimaraes/Repo/ai-job-tailor)
+2025-12-09T00:22:13.660Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-09T00:22:13.802Z  WARN 86778 --- [resume-analyser] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09T00:22:13.837Z  INFO 86778 --- [resume-analyser] [  restartedMain] c.b.r.ResumeAnalyserApplication          : Started ResumeAnalyserApplication in 0.184 seconds (process running for 1940.117)
+[ResumeController] Uploaded file: BrunoGuimaraes_CVtest2.docx
+[ResumeController] File size: 11604 bytes
+[ResumeController] Detected MIME type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+[ResumeController] Extracted resume text:
+
+Bruno Guimarães, 
+Software developer
+Porto, Portugal | Phone: +351 936269168 | bmcguimaraes@gmail.com
+Personal Summary
+
+Software engineer with 3 years of backend development experience, proficient in Java and PL/SQL. Optimised batch processes reducing runtime by 30% and refined database queries to boost performance by 30%. Passionate about solving complex technical challenges and mentoring team members to accelerate onboarding. Certified in Java (OCA) and Azure Fundamentals (AZ-900), with growing expertise in C#. Collaborative team player experienced in agile environments, actively seeking mid-level backend roles in the UK.
+Skills & Abilities
+
+Languages: Java, Python, JavaScript
+Frameworks: Spring Boot, React, Node.js
+Technologies: Docker, Azure, REST APIs
+Tools: Git, Maven, Jenkins
+Databases: PostgreSQL, MongoDB
+Mentoring and team leadership, performance tuning, agile development and CI/CD, effective communication, problem solving.
+Experience
+
+Software Developer at Deloitte, Porto	Jul 22 - Present
+      Contributed to multiple agile projects, collaborating closely with crossfunctional teams to deliver efficient backend solutions. Managed tasks and tracked progress, focusing on optimising performance and enhancing system functionality. 
+Enhanced batch chain performance, reducing the time spent on routine operations by 27% and significantly improving overall processing efficiency and throughput.
+Streamlined error handling processes, leading to a 54% reduction in issue resolution time within the first 6 months.
+Mentored new trainees in backend development and client communication, helping them develop technical skills while improving their ability to manage client relationships and understand project requirements. 
+Collaborated on complex backend implementations using PLSQL and TIA, refining database performance, delivering features through JIRA and GitHub.
+IT Intern / Warehouse Logistics at Argon Group, Porto	Jun 21 – Jun 22
+      During my internship in the IT department, I focused on backend systems, web technologies, and the development of client-facing applications. I also worked with the warehouse logistics team to gain valuable insights into the integration of IT systems with business operations.
+Developed a web-based application that allowed clients to select products and accessories, arrange them on a customizable canva, and create stacked configurations. The app generated a PDF with pricing and delivery time expectations, improving customer experience.
+Worked closely with the warehouse logistics team to enhance inventory management systems, prioritise orders, and ensure timely and accurate stock tracking for smooth business operations.
+Gained hands-on experience with key web technologies such as HTML, CSS, JS, and MongoDB, improving my understanding of web application development, backend integration, and how technology supports operational workflows.
+Education
+
+Porto Tech Institute (ISEP), Porto	2020
+Bachelor’s in System Engineering
+
+
+[1m[SUCCESS][0m Resume uploaded and analyzed successfully.
+
+==============================
+[ANALYZE RESULT]
+Job Extraction Success: true
+LLM Improvements for Tailoring:
+------------------ COPY BELOW ------------------
+[{keywordsAdded=[AI, agentic systems], bulletPointSuggestion=null, why=Aligns with the job description focusing on AI and agentic systems, section=Skills & Abilities, improvement=Add AI and agentic systems to skills, impactScoreIncrease=4},{keywordsAdded=[Python, TypeScript], bulletPointSuggestion=null, why=Matches the missing tech stack from the job description, section=Skills & Abilities, improvement=Add Python and TypeScript to skills, impactScoreIncrease=4},{keywordsAdded=[React], bulletPointSuggestion=null, why=Aligns with the job description's requirement for React, section=Skills & Abilities, improvement=Add React to skills, impactScoreIncrease=3},{keywordsAdded=[designing backend systems, LLM workflows, agentic pipelines], bulletPointSuggestion=Designed backend systems that integrated with LLM workflows and agentic pipelines to improve operational efficiency, why=Directly addresses the missing main functions of the job description, section=Experience, improvement=Rewrite to emphasise designing backend systems for LLM workflows and agentic pipelines, impactScoreIncrease=5},{keywordsAdded=[full stack features, Python, TypeScript, React], bulletPointSuggestion=Built and shipped high-velocity full stack features using Python, TypeScript, and React to enhance user experience, why=Matches the missing main functions and tech stack of the job description, section=Experience, improvement=Add full stack feature development using Python, TypeScript, and React, impactScoreIncrease=5},{keywordsAdded=[AI behaviours], bulletPointSuggestion=Transformed unstructured human knowledge into structured, self-improving AI behaviours for enhanced system performance, why=Addresses the missing main function of turning human knowledge into AI behaviours, section=Experience, improvement=Emphasise experience in turning human knowledge into structured AI behaviours, impactScoreIncrease=4}]
+------------------ END COPY ------------------
+==============================
+
+2025-12-09T00:23:55.136Z  WARN 86778 --- [resume-analyser] [ionShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36:53 min
+[INFO] Finished at: 2025-12-09T00:23:55Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.12:run (default-cli) on project resume-analyser: Process terminated with exit code: 143 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

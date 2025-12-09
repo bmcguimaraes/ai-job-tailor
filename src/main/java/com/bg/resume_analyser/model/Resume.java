@@ -6,11 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "resumes")
 public class Resume {
+    @Lob
+    private String improvementsJson;
+
+    public String getImprovementsJson() {
+        return improvementsJson;
+    }
+
+    public void setImprovementsJson(String improvementsJson) {
+        this.improvementsJson = improvementsJson;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +35,6 @@ public class Resume {
 
     private Double matchScore;
 
-    private LocalDateTime lastUploadedDate;
-
     private String vacancyUrl;
 
     private String company;
@@ -36,13 +43,14 @@ public class Resume {
 
     private boolean applied = false;
 
+    private String tailoredResumePath;
+
     public Resume() {
     }
 
     public Resume(String filename, String originalText) {
         this.filename = filename;
         this.originalText = originalText;
-        this.lastUploadedDate = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -117,11 +125,11 @@ public class Resume {
         this.applied = applied;
     }
 
-    public LocalDateTime getLastUploadedDate() {
-        return lastUploadedDate;
+    public String getTailoredResumePath() {
+        return tailoredResumePath;
     }
 
-    public void setLastUploadedDate(LocalDateTime lastUploadedDate) {
-        this.lastUploadedDate = lastUploadedDate;
+    public void setTailoredResumePath(String tailoredResumePath) {
+        this.tailoredResumePath = tailoredResumePath;
     }
 }

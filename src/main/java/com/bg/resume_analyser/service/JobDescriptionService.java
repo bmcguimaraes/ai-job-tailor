@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -175,13 +176,21 @@ public class JobDescriptionService {
                 }
             }
 
+            // Ensure company is set in the result for saving
+            if (!result.containsKey("company") && parsed.containsKey("company")) {
+                result.put("company", parsed.get("company"));
+            }
+
+
             // --- Improvements Section ---
             // 1. Top 5 missing keywords
             java.util.List<String> missingKeywords = null;
             if (result.containsKey("missingKeywords")) {
                 Object mk = result.get("missingKeywords");
                 if (mk instanceof java.util.List) {
-                    missingKeywords = (java.util.List<String>) mk;
+                    @SuppressWarnings("unchecked")
+                    List<String> keywords = (List<String>) mk;
+                    missingKeywords = keywords;
                 } else if (mk instanceof String[]) {
                     missingKeywords = java.util.Arrays.asList((String[]) mk);
                 }
@@ -193,12 +202,14 @@ public class JobDescriptionService {
             if (result.containsKey("techStack")) {
                 Object ts = result.get("techStack");
                 if (ts instanceof java.util.List) {
-                    jobTechStack = (java.util.List<String>) ts;
+                    @SuppressWarnings("unchecked")
+                    List<String> techSkills = (List<String>) ts;
+                    jobTechStack = techSkills;
                 } else if (ts instanceof String[]) {
                     jobTechStack = java.util.Arrays.asList((String[]) ts);
                 }
             }
-            java.util.List<String> resumeTechStack = java.util.Collections.emptyList(); // TODO: Extract from resume if available
+            java.util.List<String> resumeTechStack = java.util.Collections.emptyList(); 
             java.util.List<String> missingTechStack = jobTechStack != null ? jobTechStack.stream().filter(t -> !resumeTechStack.contains(t)).limit(3).toList() : java.util.Collections.emptyList();
 
             // 3. 2/3 crucial missing main functions
@@ -206,12 +217,14 @@ public class JobDescriptionService {
             if (result.containsKey("mainFunctions")) {
                 Object mf = result.get("mainFunctions");
                 if (mf instanceof java.util.List) {
-                    jobMainFunctions = (java.util.List<String>) mf;
+                     @SuppressWarnings("unchecked")
+                    List<String> mainFunctions = (List<String>) mf;
+                    jobMainFunctions = mainFunctions;
                 } else if (mf instanceof String[]) {
                     jobMainFunctions = java.util.Arrays.asList((String[]) mf);
                 }
             }
-            java.util.List<String> resumeFunctions = java.util.Collections.emptyList(); // TODO: Extract from resume if available
+            java.util.List<String> resumeFunctions = java.util.Collections.emptyList(); 
             java.util.List<String> missingFunctions = jobMainFunctions != null ? jobMainFunctions.stream().filter(f -> !resumeFunctions.contains(f)).limit(3).toList() : java.util.Collections.emptyList();
 
             Map<String, Object> improvements = new HashMap<>();

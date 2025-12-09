@@ -39,22 +39,28 @@ public class StorageService {
             Files.write(folderPath.resolve(docxFileName), docxBytes);
 
             // Save metadata (vacancy URL, date, score, improvements)
-            String metadata = String.format("""
-                    Job Application Metadata
-                    ========================
-                    Company: %s
-                    Position: %s
-                    Vacancy URL: %s
-                    Applied Date: %s
-                    Match Score: %d/100
-                    
-                    Improvements Applied:
-                    %s
-                    
-                    Note: Only tailored resume (DOCX) and metadata are saved. PDF output is planned for future releases.
-                    """,
-                    safeCompany, safePosition, vacancyUrl, LocalDate.now(), matchScore,
-                    formatImprovements(improvements));
+                                String metadata = String.format("""
+                                    Job Application Metadata
+                                    ========================
+                                    Company: %s
+                                    Position: %s
+                                    Vacancy URL: %s
+                                    Applied Date: %s
+                                    Match Score: %d/100
+
+                                    --- Improvements Overview ---
+                                    %s
+
+                                    --- Detailed Improvement Suggestions ---
+                                    %s
+
+                                    Note: Only tailored resume (DOCX) and metadata are saved. PDF output is planned for future releases.
+                                    """,
+                                    safeCompany, safePosition, vacancyUrl, LocalDate.now(), matchScore,
+                                    formatImprovements(improvements),
+                                    formatDetailedImprovements(improvements));
+
+
 
             Files.write(folderPath.resolve("metadata.txt"), metadata.getBytes());
 
@@ -90,9 +96,24 @@ public class StorageService {
             return "No specific improvements recorded.";
         }
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, Object> entry : improvements.entrySet()) {
-            sb.append("- ").append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+        if (improvements.containsKey("topMissingKeywords")) {
+            sb.append("Missing Keywords: ");
+            sb.append(improvements.get("topMissingKeywords")).append("\n");
         }
+        if (improvements.containsKey("missingTechStack")) {
+            sb.append("Missing Tech Stack: ");
+            sb.append(improvements.get("missingTechStack")).append("\n");
+        }
+        if (improvements.containsKey("missingMainFunctions")) {
+            sb.append("Missing Main Functions: ");
+            sb.append(improvements.get("missingMainFunctions")).append("\n");
+        }
+        if (improvements.containsKey("requirements")) {
+            sb.append("Other Requirements: ");
+            sb.append(improvements.get("requirements")).append("\n");
+        }
+        // List detailed improvement suggestions if present
+        // (Handled by formatDetailedImprovements for metadata)
         return sb.toString();
     }
 
@@ -116,5 +137,43 @@ public class StorageService {
             }
         }
         return null;
+    }
+    /**
+     * Formats detailed improvement suggestions for metadata file readability.
+     */
+    private String formatDetailedImprovements(Map<String, Object> improvements) {
+        if (improvements == null || !improvements.containsKey("improvements")) {
+            return "No detailed suggestions.";
+        }
+        Object imps = improvements.get("improvements");
+        StringBuilder sb = new StringBuilder();
+        if (imps instanceof Iterable) {
+            for (Object imp : (Iterable<?>) imps) {
+                if (imp instanceof Map) {
+                    Map<?,?> map = (Map<?,?>) imp;
+                    sb.append("- ");
+                    Object improvement = map.get("improvement");
+                    sb.append(improvement != null ? improvement.toString() : "");
+                    Object section = map.get("section");
+                    sb.append(" | Section: ").append(section != null ? section.toString() : "");
+                    Object impact = map.get("impactScoreIncrease");
+                    sb.append(" | Impact: +").append(impact != null ? impact.toString() : "0");
+                    Object keywords = map.get("keywordsAdded");
+                    sb.append(" | Keywords: ").append(keywords != null ? keywords.toString() : "[]");
+                    Object bullet = map.get("bulletPointSuggestion");
+                    if (bullet != null) {
+                        sb.append(" | Bullet: ").append(bullet.toString());
+                    }
+                    Object why = map.get("why");
+                    sb.append(" | Why: ").append(why != null ? why.toString() : "");
+                    sb.append("\n");
+                } else {
+                    sb.append("- ").append(imp.toString()).append("\n");
+                }
+            }
+        } else {
+            sb.append(imps.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
