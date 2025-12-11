@@ -21,19 +21,12 @@ public class ImproveService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public Map<String, Object> generateImprovements(String resumeText, String jobText, List<String> missingKeywords, int currentScore) {
+    public Map<String, Object> generateEditPlan(String resumeText, String jobText) {
         Map<String, Object> result = new HashMap<>();
-        Set<String> allKeywords = new LinkedHashSet<>();
-        List<String> bulletSuggestions = new ArrayList<>();
-        List<String> summarySuggestions = new ArrayList<>();
-        boolean fallback = false;
         try {
             if (openaiApiKey == null || openaiApiKey.isBlank()) {
-                result.put("improvements", new ArrayList<>());
-                result.put("selectedKeywords", new ArrayList<>());
-                result.put("bulletPointSuggestions", new ArrayList<>());
-                result.put("personalSummarySuggestions", new ArrayList<>());
-                result.put("projectedScore", currentScore);
+                result.put("edit_plan", new ArrayList<>());
+                result.put("skills_to_add", new HashMap<>());
                 return result;
             }
 
@@ -41,236 +34,94 @@ public class ImproveService {
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.set("Authorization", "Bearer " + openaiApiKey);
 
-            String prompt = "You are an expert resume improvement advisor. Given the resume and job description below, output ONLY the actionable content needed to tailor the resume for a perfect match.\n" +
-                "Instructions: Return a JSON object with these fields: keywordsToAdd (array of keywords/skills to add for Skills & Abilities section), skillsAndAbilitiesToAdd (array of skills/abilities to add or emphasize for Skills & Abilities section), bulletPointSuggestions (array of new or rewritten bullet points for Experience section), personalSummarySuggestions (array of concise summary sentences to add or improve for Personal Summary section).\n" +
-                "Do NOT include generic advice, explanations, or any text outside the JSON.\n" +
-                "Use UK English spelling, grammar, and conventions.\n" +
-                "Only include content that is relevant, concise, and improves the match score.\n" +
-                "Do not repeat existing resume content unless it needs improvement.\n" +
-                "MISSING KEYWORDS: " + String.join(", ", missingKeywords) + "\n" +
-                "MISSING TECH STACK: " + (jobText.contains("Tech Stack:") ? jobText.substring(jobText.indexOf("Tech Stack:"), jobText.indexOf("\n", jobText.indexOf("Tech Stack:"))) : "") + "\n" +
-                "MISSING MAIN FUNCTIONS: " + (jobText.contains("Main Functions:") ? jobText.substring(jobText.indexOf("Main Functions:"), jobText.indexOf("\n", jobText.indexOf("Main Functions:"))) : "") + "\n" +
-                "Resume:\n" + resumeText + "\n" +
-                "Job Description:\n" + jobText + "\n" +
-                "Example output: {" +
-                "\\\"keywordsToAdd\\\": [\\\"Spring Boot\\\", \\\"TypeScript\\\"], " +
-                "\\\"skillsAndAbilitiesToAdd\\\": [\\\"Team leadership\\\", \\\"Agile development\\\"], " +
-                "\\\"bulletPointSuggestions\\\": [\\\"Led a team of 5 engineers to deliver a cloud migration project.\\\", \\\"Implemented CI/CD pipelines using Jenkins and Docker.\\\"], " +
-                "\\\"personalSummarySuggestions\\\": [\\\"Experienced software engineer with a focus on scalable backend systems.\\\", \\\"Proven track record in leading cross-functional teams.\\\"]}";
+            String prompt = "You are an expert resume editor. Your task is to surgically edit a resume to perfectly match a job description, preserving the original formatting. " +
+                "You MUST return ONLY a valid JSON object. Do not include any text, explanations, or markdown before or after the JSON object.\\n\\n" +
+                "**INSTRUCTIONS:**\\n" +
+                "1.  **Extract Key Info**: From the job description, you MUST extract the `company_name`, `position_title`, and `contact_person`.\\n" +
+                "2.  **Semantic Check**: Before suggesting an addition, verify that the skill or concept is not already present in the resume. Do not suggest redundant additions.\\n" +
+                "3.  **Comprehensive Review**: On every run, you MUST review the 'Personal Summary' and 'Experience' sections for potential improvements, and the 'Skills & Abilities' section to identify skills to add. Your suggestions must be comprehensive and consistent.\\n" +
+                "4.  **Suggestion Strategy**: Prioritize suggestions based on their impact and relevance to the job description.\\n" +
+                "    - **Critical Functions**: If a main function from the job description is missing and critical, incorporate it into the `Personal Summary` via the `edit_plan`.\\n" +
+                "    - **Important Functions**: If a function is important but not critical, incorporate it into the `Experience` section via the `edit_plan`.\\n" +
+                "    - **High-Impact Skills**: Add high-impact missing skills and abilities to the `skills_to_add` object.\\n" +
+                "5.  **JSON Output Structure**: The JSON object must have five root keys: `company_name`, `position_title`, `contact_person`, `edit_plan`, and `skills_to_add`.\\n" +
+                "    - `company_name`: A string containing the name of the company hiring. If not found, use `\"N/A\"`.\\n" +
+                "    - `position_title`: A string containing the title of the role. If not found, use `\"N/A\"`.\\n" +
+                "    - `contact_person`: A string containing the name of the recruiter or hiring manager. If not found, use an empty string `\"\"`.\\n" +
+                "    - The `edit_plan` is an array of objects for edits to 'Personal Summary' and 'Experience' ONLY.\\n" +
+                "    - The `skills_to_add` is an object for adding new, categorized skills to the 'Skills & Abilities' section.\\n" +
+                "6.  **Edit Object Structure (`edit_plan`)**: Each object in the `edit_plan` array must have these keys:\\n" +
+                "    - `action`: Must be `\"REPLACE\"`. (Use this to rewrite sentences or bullet points).\\n" +
+                "    - `section`: The resume section to edit. Must be one of `\"Personal Summary\"` or `\"Experience\"`.\\n" +
+                "    - `original_text`: The exact, original text to be replaced. For bullet points, this must be the complete and exact text of the bullet point.\\n" +
+                "    - `new_text`: The new, improved text.\\n" +
+                "7.  **Skills Categorization (`skills_to_add`)**: This object must categorize all new skills to be added. The allowed categories are:\\n" +
+                "    - `Languages`, `Frameworks & Libraries`, `Cloud & DevOps`, `Databases`, `Professional Skills & Methodologies`.\\n" +
+                "8.  **Rules & Constraints**:\\n" +
+                "    - **Truthfulness**: You MUST NOT invent or exaggerate experience. Do not change the user's job title (e.g., from 'Software Developer' to 'Senior Software Developer'). Your role is to align existing experience with the job description, not to create new qualifications. The user is changing careers and is not a senior yet, so you must not label them as such.\\n" +
+                "    - **Skill Categorization**: Before adding a skill, you MUST first identify its nature (e.g., 'DAML' is a language). Then, place it in the most accurate category. Do not miscategorize skills.\\n" +
+                "    - **Targeting Bullet Points**: To replace a bullet point in the 'Experience' section, the `original_text` MUST match the bullet point's text exactly.\\n" +
+                "    - **Bullet Point Logic**: When editing a bullet point in the 'Experience' section, first evaluate if the new information can be logically and grammatically appended. If appending would sound awkward or disrupt the flow, you MUST instead replace the entire bullet point with a rewritten, coherent version that incorporates the new information. Prefer rewriting for clarity and impact.\\n" +
+                "    - **Capitalization**: For skills, capitalize proper nouns (e.g., 'Java', 'Azure', 'Spring Boot'). For all other skills, use sentence case (e.g., 'Performance tuning', 'Prompt engineering').\\n" +
+                "    - Use UK English spelling and grammar.\\n" +
+                "    - Be concise and relevant. Do not add fluff.\\n" +
+                "    - The `edit_plan` MUST NOT target the 'Skills & Abilities' section. All direct additions to the 'Skills & Abilities' section are handled by `skills_to_add`.\\n\\n" +
+                "**CONTEXT:**\\n" +
+                "- **Resume**:\\n```\\n" + resumeText + "\\n```\\n" +
+                "- **Job Description**:\\n```\\n" + jobText + "\\n```\\n" +
+                "- **Key Job Requirements**: Pay close attention to the 'Tech Stack' and 'Main Functions' or 'Responsibilities' sections of the job description. Your suggestions should prioritize aligning the resume with these key requirements.\\n\\n" +
+                "**EXAMPLE OUTPUT:**\\n" +
+                "```json\\n" +
+                "{\\n" +
+                "  \\\"company_name\\\": \\\"Innovate Inc.\\\",\\n" +
+                "  \\\"position_title\\\": \\\"Senior AI Developer\\\",\\n" +
+                "  \\\"contact_person\\\": \\\"Jane Doe\\\",\\n" +
+                "  \\\"edit_plan\\\": [\\n" +
+                "    {\\n" +
+                "      \\\"action\\\": \\\"REPLACE\\\",\\n" +
+                "      \\\"section\\\": \\\"Experience\\\",\\n" +
+                "      \\\"original_text\\\": \\\"• Enhanced batch chain performance, reducing the time spent on routine operations by 27% and significantly improving overall processing efficiency and throughput.\\\",\\n" +
+                "      \\\"new_text\\\": \\\"• Enhanced batch chain performance using Spring Batch, reducing routine operations time by 27% and significantly improving overall processing efficiency and throughput.\\\"\\n" +
+                "    }\\n" +
+                "  ],\\n" +
+                "  \\\"skills_to_add\\\": {\\n" +
+                "    \\\"Languages\\\": [\\\"TypeScript\\\"],\\n" +
+                "    \\\"soft_skills_to_add\\\": [\\\"AI-driven development environments\\\"]\\n" +
+                "  }\\n" +
+                "}\\n" +
+                "```";
 
             Map<String, Object> payload = new HashMap<>();
             payload.put("model", "gpt-4-turbo");
+            payload.put("response_format", Map.of("type", "json_object"));
             payload.put("messages", java.util.List.of(
-                Map.of("role", "system", "content", "You are a resume improvement advisor. Provide concrete, actionable suggestions. Return valid JSON only."),
+                Map.of("role", "system", "content", "You are a resume editing assistant that returns only valid JSON."),
                 Map.of("role", "user", "content", prompt)
             ));
-            payload.put("temperature", 0.5);
-            payload.put("max_tokens", 800);
-
-            // Set timeout for the LLM API call
-            int timeoutMillis = 60000; // 1 minute
-            org.springframework.http.client.SimpleClientHttpRequestFactory requestFactory = new org.springframework.http.client.SimpleClientHttpRequestFactory();
-            requestFactory.setConnectTimeout(timeoutMillis);
-            requestFactory.setReadTimeout(timeoutMillis);
-            RestTemplate timedRestTemplate = new RestTemplate(requestFactory);
+            payload.put("temperature", 0.2);
+            payload.put("max_tokens", 1500);
 
             HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
-            ResponseEntity<String> resp;
-            try {
-                resp = timedRestTemplate.postForEntity("https://api.openai.com/v1/chat/completions", request, String.class);
-            } catch (Exception timeoutEx) {
-                result.put("improvements", new ArrayList<>());
-                result.put("selectedKeywords", new ArrayList<>());
-                result.put("bulletPointSuggestions", new ArrayList<>());
-                result.put("personalSummarySuggestions", new ArrayList<>());
-                result.put("projectedScore", currentScore);
-                result.put("error", "[FAIL] LLM API call timed out after 1 minute");
-                System.out.println("\u001B[1m[FAIL]\u001B[0m LLM API call timed out after 1 minute.");
-                return result;
-            }
+            ResponseEntity<String> resp = restTemplate.postForEntity("https://api.openai.com/v1/chat/completions", request, String.class);
 
             JsonNode respNode = objectMapper.readTree(resp.getBody());
             String assistantMsg = respNode.at("/choices/0/message/content").asText();
+            JsonNode parsed = objectMapper.readTree(assistantMsg);
 
-            int jsonStart = assistantMsg.indexOf('{');
-            int jsonEnd = assistantMsg.lastIndexOf('}') + 1;
-            if (jsonStart >= 0 && jsonEnd > jsonStart) {
-                String jsonStr = assistantMsg.substring(jsonStart, jsonEnd);
-                JsonNode parsed = objectMapper.readTree(jsonStr);
+            result.put("company_name", parsed.has("company_name") ? parsed.get("company_name").asText() : "N/A");
+            result.put("position_title", parsed.has("position_title") ? parsed.get("position_title").asText() : "N/A");
+            result.put("contact_person", parsed.has("contact_person") ? parsed.get("contact_person").asText() : "");
+            result.put("edit_plan", parsed.has("edit_plan") ? parsed.get("edit_plan") : new ArrayList<>());
+            result.put("skills_to_add", parsed.has("skills_to_add") ? parsed.get("skills_to_add") : new HashMap<>());
 
-                JsonNode keywordsArray = parsed.get("keywordsToAdd");
-                if (keywordsArray != null && keywordsArray.isArray()) {
-                    for (JsonNode keyword : keywordsArray) {
-                        allKeywords.add(keyword.asText());
-                    }
-                }
-                JsonNode skillsArray = parsed.get("skillsAndAbilitiesToAdd");
-                if (skillsArray != null && skillsArray.isArray()) {
-                    for (JsonNode skill : skillsArray) {
-                        allKeywords.add(skill.asText());
-                    }
-                }
-                JsonNode bulletsArray = parsed.get("bulletPointSuggestions");
-                if (bulletsArray != null && bulletsArray.isArray()) {
-                    for (JsonNode bullet : bulletsArray) {
-                        bulletSuggestions.add(bullet.asText());
-                    }
-                }
-                JsonNode summaryArray = parsed.get("personalSummarySuggestions");
-                if (summaryArray != null && summaryArray.isArray()) {
-                    for (JsonNode summary : summaryArray) {
-                        summarySuggestions.add(summary.asText());
-                    }
-                }
-                // Fallback if all actionable fields are empty
-                if (allKeywords.isEmpty() && bulletSuggestions.isEmpty() && summarySuggestions.isEmpty()) {
-                    fallback = true;
-                }
-            } else {
-                fallback = true;
-            }
-
-            // Fallback: force LLM to analyze job post directly
-            if (fallback) {
-                String fallbackPrompt = "You are an expert resume improvement advisor. The previous analysis did not yield actionable suggestions. Analyze the job description below and generate actionable improvements for tailoring the resume. Return a JSON object with: keywordsToAdd, skillsAndAbilitiesToAdd, bulletPointSuggestions, personalSummarySuggestions.\nJob Description:\n" + jobText + "\n";
-                Map<String, Object> fallbackPayload = new HashMap<>();
-                fallbackPayload.put("model", "gpt-4-turbo");
-                fallbackPayload.put("messages", java.util.List.of(
-                    Map.of("role", "system", "content", "You are a resume improvement advisor. Provide actionable suggestions. Return valid JSON only."),
-                    Map.of("role", "user", "content", fallbackPrompt)
-                ));
-                fallbackPayload.put("temperature", 0.5);
-                fallbackPayload.put("max_tokens", 800);
-                HttpEntity<Map<String, Object>> fallbackRequest = new HttpEntity<>(fallbackPayload, headers);
-                ResponseEntity<String> fallbackResp = restTemplate.postForEntity("https://api.openai.com/v1/chat/completions", fallbackRequest, String.class);
-                String fallbackMsg = objectMapper.readTree(fallbackResp.getBody()).at("/choices/0/message/content").asText();
-                int fbJsonStart = fallbackMsg.indexOf('{');
-                int fbJsonEnd = fallbackMsg.lastIndexOf('}') + 1;
-                if (fbJsonStart >= 0 && fbJsonEnd > fbJsonStart) {
-                    String fbJsonStr = fallbackMsg.substring(fbJsonStart, fbJsonEnd);
-                    JsonNode fbParsed = objectMapper.readTree(fbJsonStr);
-                    allKeywords.clear();
-                    bulletSuggestions.clear();
-                    summarySuggestions.clear();
-                    JsonNode fbKeywordsArray = fbParsed.get("keywordsToAdd");
-                    if (fbKeywordsArray != null && fbKeywordsArray.isArray()) {
-                        for (JsonNode keyword : fbKeywordsArray) {
-                            allKeywords.add(keyword.asText());
-                        }
-                    }
-                    JsonNode fbSkillsArray = fbParsed.get("skillsAndAbilitiesToAdd");
-                    if (fbSkillsArray != null && fbSkillsArray.isArray()) {
-                        for (JsonNode skill : fbSkillsArray) {
-                            allKeywords.add(skill.asText());
-                        }
-                    }
-                    JsonNode fbBulletsArray = fbParsed.get("bulletPointSuggestions");
-                    if (fbBulletsArray != null && fbBulletsArray.isArray()) {
-                        for (JsonNode bullet : fbBulletsArray) {
-                            bulletSuggestions.add(bullet.asText());
-                        }
-                    }
-                    JsonNode fbSummaryArray = fbParsed.get("personalSummarySuggestions");
-                    if (fbSummaryArray != null && fbSummaryArray.isArray()) {
-                        for (JsonNode summary : fbSummaryArray) {
-                            summarySuggestions.add(summary.asText());
-                        }
-                    }
-                }
-            }
         } catch (Exception e) {
-            result.put("improvements", new ArrayList<>());
-            result.put("selectedKeywords", new ArrayList<>());
-            result.put("bulletPointSuggestions", new ArrayList<>());
-            result.put("personalSummarySuggestions", new ArrayList<>());
-            result.put("projectedScore", currentScore);
-            result.put("error", e.getMessage());
-            System.out.println("\u001B[1m[FAIL]\u001B[0m Resume improvement failed: " + e.getMessage());
-            return result;
+            System.err.println("Error generating edit plan: " + e.getMessage());
+            result.put("edit_plan", new ArrayList<>());
+            result.put("skills_to_add", new HashMap<>());
+            result.put("error", "[FAIL] Could not generate edit plan from LLM.");
         }
-        // Populate results and calculate score after try/catch
-        result.put("improvements", new ArrayList<>()); // No detailed improvements, just actionable lists
-        result.put("selectedKeywords", new ArrayList<>(allKeywords));
-        result.put("bulletPointSuggestions", bulletSuggestions);
-        result.put("personalSummarySuggestions", summarySuggestions);
-        int projectedScore = Math.min(100, currentScore + allKeywords.size() + bulletSuggestions.size() + summarySuggestions.size());
-        result.put("projectedScore", projectedScore);
         return result;
     }
-
-    /**
-     * Generate tailored resume text using actionable improvements and original resume.
-     * This is a stub implementation. Replace with actual LLM or tailoring logic as needed.
-     */
-    public com.fasterxml.jackson.databind.JsonNode generateEditPlan(
-            String originalText,
-            String jobText,
-            List<String> skillsAndAbilitiesToAdd,
-            List<String> bulletPointSuggestions,
-            List<String> personalSummarySuggestions) {
-        
-        System.out.println("[DEBUG] Entered generateEditPlan");
-
-        String prompt = "You are an expert resume editor. Your goal is to make minimal, high-impact changes. Below is an original resume and a list of potential improvements. Your task is to decide which of these improvements are crucial and where they should be placed.\n\n" +
-            "Instructions:\n" +
-            "1. Review the 'Personal Summary Suggestions'. If a suggestion significantly improves the summary, integrate it by replacing a phrase or adding a sentence. Otherwise, ignore it.\n" +
-            "2. Review the 'Skills to Add'. Add only the most critical keywords to the existing 'Skills & Abilities' section. Do not add more than 3-4 keywords.\n" +
-            "3. Review the 'Experience Bullet Points'. Add or rewrite only the most vital bullet points to the 'Experience' section to match the job description. Do not add more than 1-2 new bullet points. It is preferred if you change any existing ones rather than creating new ones.\n" +
-            "4. Your output must be ONLY a JSON object that specifies the exact text to add or replace. Do not rewrite the whole resume.\n\n" +
-            "Original Resume:\n" + originalText + "\n\n" +
-            "Potential Improvements:\n" +
-            "- Personal Summary Suggestions: " + personalSummarySuggestions + "\n" +
-            "- Skills to Add: " + skillsAndAbilitiesToAdd + "\n" +
-            "- Experience Bullet Points: " + bulletPointSuggestions + "\n\n" +
-            "Example JSON Output:\n" +
-            "{\n" +
-            "  \"personal_summary_edits\": [\n" +
-            "    { \"type\": \"REPLACE\", \"original\": \"Software engineer with 3 years of backend development experience\", \"updated\": \"Backend software engineer with 3 years of experience in AI-driven systems\" },\n" +
-            "    { \"type\": \"ADD\", \"after_sentence\": \"Certified in Java (OCA) and Azure Fundamentals (AZ-900).\", \"new_sentence\": \"Passionate about building scalable, agentic pipelines.\" }\n" +
-            "  ],\n" +
-            "  \"skills_to_add\": [\"TypeScript\", \"Agentic Pipelines\"],\n" +
-            "  \"experience_edits\": [\n" +
-            "    { \"type\": \"REPLACE\", \"original\": \"Contributed to multiple agile projects...\", \"updated\": \"Led backend development on 2 agile projects...\" },\n" +
-            "    { \"type\": \"ADD\", \"after_bullet\": \"Streamlined error handling processes...\", \"new_bullet\": \"Designed and implemented AI behaviours...\" }\n" +
-            "  ]\n" +
-            "}";
-
-        Map<String, Object> payload = new HashMap<>();
-        payload.put("model", "gpt-4-turbo");
-        payload.put("messages", java.util.List.of(
-            Map.of("role", "system", "content", "You are a resume editor. You will be given a resume and potential improvements. Your task is to generate a JSON object specifying the exact edits to make. Follow the user's instructions precisely."),
-            Map.of("role", "user", "content", prompt)
-        ));
-        payload.put("temperature", 0.2);
-        payload.put("max_tokens", 1500);
-        payload.put("response_format", Map.of("type", "json_object"));
-
-
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.set("Authorization", "Bearer " + openaiApiKey);
-            HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
-            
-            System.out.println("[DEBUG] Sending request to OpenAI for edit plan...");
-            ResponseEntity<String> resp = restTemplate.postForEntity("https://api.openai.com/v1/chat/completions", request, String.class);
-            System.out.println("[DEBUG] Received response from OpenAI.");
-
-            JsonNode respNode = objectMapper.readTree(resp.getBody());
-            String jsonText = respNode.at("/choices/0/message/content").asText();
-            
-            System.out.println("[DEBUG] AI-generated Edit Plan:\n" + jsonText);
-            
-            return objectMapper.readTree(jsonText);
-
-        } catch (Exception e) {
-            System.err.println("[FAIL] Error calling OpenAI for edit plan: " + e.getMessage());
-            e.printStackTrace();
-            // Return an empty JSON object on failure
-            return objectMapper.createObjectNode();
-        }
-    }
-
 }
 
 

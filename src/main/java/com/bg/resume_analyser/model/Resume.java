@@ -43,7 +43,15 @@ public class Resume {
 
     private boolean applied = false;
 
-    private String tailoredResumePath;
+    private String tailoredPath;
+
+    public String getTailoredPath() {
+        return tailoredPath;
+    }
+
+    public void setTailoredPath(String tailoredPath) {
+        this.tailoredPath = tailoredPath;
+    }
 
     public Resume() {
     }
@@ -123,13 +131,5 @@ public class Resume {
 
     public void setApplied(boolean applied) {
         this.applied = applied;
-    }
-
-    public String getTailoredResumePath() {
-        return tailoredResumePath;
-    }
-
-    public void setTailoredResumePath(String tailoredResumePath) {
-        this.tailoredResumePath = tailoredResumePath;
     }
 }

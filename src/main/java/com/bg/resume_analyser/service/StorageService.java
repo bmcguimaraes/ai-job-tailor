@@ -1,5 +1,6 @@
 package com.bg.resume_analyser.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,12 +8,65 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 @Service
 public class StorageService {
 
-    private static final String BASE_FOLDER = "/Users/brunoguimaraes/Documents/JA";
+    private static final String BASE_FOLDER = System.getProperty("user.home") + "/Documents/JA";
+
+    public Path createApplicationFolder(String company, String position) throws IOException {
+        String safeCompany = (company == null || company.isBlank()) ? "UnknownCompany" : company;
+        String safePosition = (position == null || position.isBlank()) ? "UnknownPosition" : position;
+        String folderName = sanitizeFolderName(safeCompany + "_" + safePosition);
+        Path folderPath = Paths.get(BASE_FOLDER, folderName);
+        Files.createDirectories(folderPath);
+        return folderPath;
+    }
+
+    public void writeMetadata(Path folderPath, String company, String position, String contact, String vacancyUrl, JsonNode editPlan, JsonNode skillsToAdd) throws IOException {
+        StringBuilder improvements = new StringBuilder();
+        improvements.append("\n\n--- Improvements Made ---\n");
+
+        if (editPlan != null && editPlan.isArray() && editPlan.size() > 0) {
+            improvements.append("\nText Replacements:\n");
+            for (JsonNode edit : editPlan) {
+                improvements.append(String.format("  - Section: %s\n", edit.get("section").asText()));
+                improvements.append(String.format("    Original: %s\n", edit.get("original_text").asText()));
+                improvements.append(String.format("    New: %s\n\n", edit.get("new_text").asText()));
+            }
+        }
+
+        if (skillsToAdd != null && skillsToAdd.isObject() && skillsToAdd.size() > 0) {
+            improvements.append("\nSkills Added:\n");
+            Iterator<Map.Entry<String, JsonNode>> fields = skillsToAdd.fields();
+            while (fields.hasNext()) {
+                Map.Entry<String, JsonNode> entry = fields.next();
+                String category = entry.getKey();
+                JsonNode skills = entry.getValue();
+                if (skills.isArray() && skills.size() > 0) {
+                    improvements.append(String.format("  - %s:\n", category));
+                    for (JsonNode skill : skills) {
+                        improvements.append(String.format("    - %s\n", skill.asText()));
+                    }
+                    improvements.append("\n");
+                }
+            }
+        }
+
+        String metadata = String.format("""
+                Company: %s
+                Role: %s
+                Applied Date: %s
+                State: waiting for response
+                Contact: %s
+                Vacancy URL: %s
+                %s
+                """,
+                company, position, LocalDate.now(), contact, vacancyUrl, improvements.toString());
+        Files.write(folderPath.resolve("metadata.txt"), metadata.getBytes());
+    }
 
     public Map<String, Object> saveApprovedResume(String company, String position, 
                                                   String tailoredResumeText, byte[] docxBytes,
