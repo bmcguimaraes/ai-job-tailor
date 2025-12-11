@@ -1,5 +1,16 @@
 # AI Job Tailor - Resume Analyzer & Tailoring System
 
+## Version 1.0 - Functional MVP
+
+This marks the first fully functional version of the AI Job Tailor. The system can now successfully take a base resume, compare it against a job description, and produce a surgically-edited, tailored DOCX file that preserves the original formatting.
+
+### Current Functionality & Caveats
+-   **Job Input**: The system accepts job descriptions via a URL (currently optimized for LinkedIn postings) or as plain text pasted directly into the request.
+-   **Personalized Design**: This version is highly tailored to a specific resume structure and a particular user's career transition needs.
+-   **Future Improvements**: For broader consumer use, significant improvements will be needed, including support for more varied resume templates, enhanced job site scraping, and more generalized AI editing logic.
+
+---
+
 ## Project Status
 ✅ **Backend Implementation Complete** (MVP ready for testing)
 ⏳ **UI Implementation**: Next phase (React, simple HTML, or Postman-based testing)
@@ -47,6 +58,11 @@ StorageService (File save to JA folder)
 Resume Entity (H2 Database)
 ```
 
+### Future Architectural Improvements
+-   **Asynchronous Processing**: To improve responsiveness, the `/tailor` endpoint could be made asynchronous. It would immediately return a job ID, and the client could poll a separate `/jobs/{jobId}/status` endpoint to get the result.
+-   **Centralized Configuration**: While already in use for some properties, further centralizing settings (like file paths and AI model parameters) into `application.properties` will improve maintainability.
+-   **Standardized Error Handling**: Implement a global exception handler (`@ControllerAdvice`) to ensure the API returns consistent, user-friendly JSON error messages for all potential issues, rather than full stack traces.
+
 ---
 
 ## Tech Stack
@@ -85,8 +101,23 @@ Input: { selectedKeywords: [...], maxDeviationPercent: 40 }
 Output: Tailored text + DOCX (base64-encoded)
 ```
 
+---
 
+## Versioning Guide (Semantic Versioning)
 
+This project follows Semantic Versioning (`MAJOR.MINOR.PATCH`). Use this guide for commits.
+
+### `2.0.0` (Major Version)
+Increment for **incompatible API changes** (breaking changes).
+-   **Examples**: Changing an endpoint URL, removing an endpoint, or altering the JSON request/response structure in a non-backward-compatible way.
+
+### `1.1.0` (Minor Version)
+Increment for **adding new, backward-compatible functionality**.
+-   **Examples**: Adding a new endpoint, adding a new *optional* field to a request, or extending functionality (e.g., supporting a new job site).
+
+### `1.0.1` (Patch Version)
+Increment for **backward-compatible bug fixes**.
+-   **Examples**: Fixing runtime errors (like a `NullPointerException`), correcting AI prompt logic, or fixing formatting issues.
 ### 4. Save Approved Resume
 ```
 POST /api/resumes/approve/{id}
