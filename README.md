@@ -67,12 +67,20 @@ Resume Entity (H2 Database)
 
 ## Tech Stack
 - **Backend**: Spring Boot 3.4.12, Java 17
-- **NLP/AI**: OpenAI API (gpt-3.5-turbo, text-embedding-3-small)
-- **Web Scraping**: Jsoup 1.15.3
+- **NLP/AI**: OpenAI API (gpt-4-turbo)
+- **Web Scraping**: Jsoup 1.17.2
 - **Document Generation**: Apache POI 5.2.3
 - **Text Extraction**: Apache Tika 2.9.0
 - **Database**: H2 (prototype), PostgreSQL ready
 - **Build**: Maven
+
+---
+
+## Operational Costs
+
+The application uses the OpenAI API, which is a pay-as-you-go service. Based on initial testing, the average cost for a single run of the tailoring process is approximately **$0.035 (3.5 cents)**.
+
+This cost can fluctuate based on the length of the resume and the job description provided.
 
 ---
 
