@@ -59,11 +59,12 @@ public class ImproveService {
                 "    - `Languages`, `Frameworks & Libraries`, `Cloud & DevOps`, `Databases`, `Professional Skills & Methodologies`.\\n" +
                 "8.  **Rules & Constraints**:\\n" +
                 "    - **Truthfulness**: You MUST NOT invent or exaggerate experience. Do not change the user's job title (e.g., from 'Software Developer' to 'Senior Software Developer'). Your role is to align existing experience with the job description, not to create new qualifications. The user is changing careers and is not a senior yet, so you must not label them as such.\\n" +
+                "    - **Triple-Check Skill Categorization**: Before finalizing the JSON, you MUST triple-check every single skill you have added. For example, `FastAPI` is a Python framework, so it is WRONG to place it under `Languages`; it MUST go under `Frameworks & Libraries`. `Asyncio` is a library; it also belongs in `Frameworks & Libraries`. Failure to categorize correctly will result in a penalty.\\n" +
                 "    - **Skill Categorization**: Before adding a skill, you MUST first identify its nature (e.g., 'DAML' is a language). Then, place it in the most accurate category. Do not miscategorize skills.\\n" +
                 "    - **Targeting Bullet Points**: To replace a bullet point in the 'Experience' section, the `original_text` MUST match the bullet point's text exactly.\\n" +
                 "    - **Bullet Point Logic**: When editing a bullet point in the 'Experience' section, first evaluate if the new information can be logically and grammatically appended. If appending would sound awkward or disrupt the flow, you MUST instead replace the entire bullet point with a rewritten, coherent version that incorporates the new information. Prefer rewriting for clarity and impact.\\n" +
                 "    - **Capitalization**: For skills, capitalize proper nouns (e.g., 'Java', 'Azure', 'Spring Boot'). For all other skills, use sentence case (e.g., 'Performance tuning', 'Prompt engineering').\\n" +
-                "    - Use UK English spelling and grammar.\\n" +
+                "    - **UK English Spelling**: You MUST use UK English spelling (e.g., 'optimisation', not 'optimization'). Failure to do so will result in a penalty.\\n" +
                 "    - Be concise and relevant. Do not add fluff.\\n" +
                 "    - The `edit_plan` MUST NOT target the 'Skills & Abilities' section. All direct additions to the 'Skills & Abilities' section are handled by `skills_to_add`.\\n\\n" +
                 "**CONTEXT:**\\n" +
