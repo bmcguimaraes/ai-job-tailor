@@ -1,341 +1,181 @@
 # AI Job Tailor - Resume Analyzer & Tailoring System
 
+## The Problem
+
+Manually tailoring a resume for every job application is a time-consuming, repetitive, and error-prone process. Job seekers often have to:
+-   Carefully read each job description to identify key skills and requirements.
+-   Manually edit their resume to insert these keywords.
+-   Struggle to preserve the document's original formatting, often breaking styles, fonts, and spacing.
+-   Risk introducing typos or grammatical errors during the editing process.
+
+This project aims to solve this by automating the entire tailoring process, creating a perfectly formatted, keyword-optimised resume in seconds.
+
 ## Version 1.0 - Functional MVP
 
 This marks the first fully functional version of the AI Job Tailor. The system can now successfully take a base resume, compare it against a job description, and produce a surgically-edited, tailored DOCX file that preserves the original formatting.
 
-### Current Functionality & Caveats
--   **Job Input**: The system accepts job descriptions via a URL (currently optimized for LinkedIn postings) or as plain text pasted directly into the request.
--   **Personalized Design**: This version is highly tailored to a specific resume structure and a particular user's career transition needs.
--   **Future Improvements**: For broader consumer use, significant improvements will be needed, including support for more varied resume templates, enhanced job site scraping, and more generalized AI editing logic.
-
----
-
-## Project Status
-✅ **Backend Implementation Complete** (MVP ready for testing)
-⏳ **UI Implementation**: Next phase (React, simple HTML, or Postman-based testing)
-
----
-
-## What We Built
-
-
 ### Core Features
-1. **Resume Upload**: Extract text from PDF resumes using Apache Tika
-2. **Job Posting Analysis**: Scrape job postings and extract key details (position, salary, skills, experience level, posting date)
-3. **Intelligent Matching**: 
-    - Embeddings-based semantic similarity (OpenAI)
-    - Keyword matching on required skills
-    - Weighted scoring: Soft Skills (20%), Technical (30%), Role/Experience (40%), Keywords (10%)
-    - **Note:** The matching score is computed by the backend using embeddings and field matching logic, not directly by an LLM. The LLM is used for extraction, not for scoring.
-    - Flags red flags: Security Clearance or UK Passport requirements
-    - ⚠️ **Matching system may need readjustment/tuning for better accuracy.**
-4. **Improvement Suggestions**: AI-generated suggestions (up to 6) for tailoring your resume
-5. **Resume Tailoring**: Generate a tailored version using selected keywords (max 40% modification)
-6. **DOCX Output**: Download tailored resume in Microsoft Word format for review
-7. **Local Storage**: Save tailored resumes to `/Users/brunoguimaraes/Documents/JA/{company_position}/` as DOCX and metadata only
-    - Folder name is always `{company}_{position}` (sanitized)
-    - Tailored resume DOCX file is named `{YourName}_{position}.docx` (e.g., `BrunoGuimaraes_software_dev.docx`)
-    - ⚠️ End goal: Output tailored resume as PDF (not DOCX)
+-   **AI-Powered Tailoring**: Leverages the OpenAI API (`gpt-4-turbo`) to analyze a resume against a job description and generate a plan for targeted edits.
+-   **Flexible Job Input**: Accepts a job description from either a public URL (e.g., a LinkedIn posting) or as plain text.
+-   **Surgical DOCX Editing**: Uses Apache POI to apply the AI's edit plan to a `.docx` file, ensuring that all original formatting, fonts, and styles are perfectly preserved.
+-   **Robust Text Replacement**: Implements a fuzzy matching algorithm (`JaroWinklerSimilarity`) to reliably find and replace text, even with minor variations.
+-   **Simple REST API**: Exposes a single, easy-to-use endpoint for all operations.
 
 ---
 
 ## Architecture
 
+The application follows a simple, service-oriented design pattern running on Spring Boot.
+
 ```
-ResumeController (HTTP endpoints)
+HTTP Request (POST /api/resumes/tailor/{id})
     ↓
-JobDescriptionService (Web scraping + LLM parsing)
+ResumeController
     ↓
-MatchingService (Score computation: embeddings + keywords)
+ScraperService (if URL is provided)
     ↓
-ImproveService (Improvement suggestions + resume tailoring)
+ImproveService (Calls OpenAI API, generates edit plan)
     ↓
-DocxService (DOCX generation)
+DocxService (Executes the edit plan on the .docx file)
     ↓
-StorageService (File save to JA folder)
-    ↓
-Resume Entity (H2 Database)
+FileSystem (Saves tailored resume and metadata.txt)
 ```
 
-### Future Architectural Improvements
--   **Asynchronous Processing**: To improve responsiveness, the `/tailor` endpoint could be made asynchronous. It would immediately return a job ID, and the client could poll a separate `/jobs/{jobId}/status` endpoint to get the result.
--   **Centralized Configuration**: While already in use for some properties, further centralizing settings (like file paths and AI model parameters) into `application.properties` will improve maintainability.
--   **Standardized Error Handling**: Implement a global exception handler (`@ControllerAdvice`) to ensure the API returns consistent, user-friendly JSON error messages for all potential issues, rather than full stack traces.
+### Architectural Trade-offs
+
+-   **"Surgical Edit" vs. Full Regeneration**:
+    -   **Our Choice**: We opted for a "Surgical Edit" approach, where the AI generates a JSON plan of edits, and the Java code executes it.
+    -   **Trade-off**: This is more complex to implement, as it requires a robust system for finding and replacing text within the DOCX structure. However, it gives us **maximum control and guarantees that the original document's formatting is perfectly preserved**.
+    -   **Alternative**: We could have asked the AI to generate a completely new resume text. This would be simpler to implement but would lose all original formatting and risk the AI "hallucinating" a completely different structure.
+
+-   **Fuzzy Matching vs. Exact Matching**:
+    -   **Our Choice**: We implemented fuzzy string matching (`JaroWinklerSimilarity`) for text replacement.
+    -   **Trade-off**: This adds a slight computational overhead and a dependency on `Apache Commons Text`. However, it makes the system **far more resilient**. It can find and replace text even if there are minor differences (like extra spaces or slight rephrasing) between the resume text and the AI's `original_text` instruction.
+    -   **Alternative**: An exact match is simpler but brittle. A single extra space or a minor punctuation difference would cause the replacement to fail.
 
 ---
 
 ## Tech Stack
-- **Backend**: Spring Boot 3.4.12, Java 17
-- **NLP/AI**: OpenAI API (gpt-4-turbo)
+- **Language**: Java 17
+- **Framework**: Spring Boot 3
+- **AI Engine**: OpenAI API (gpt-4-turbo)
 - **Web Scraping**: Jsoup 1.17.2
-- **Document Generation**: Apache POI 5.2.3
-- **Text Extraction**: Apache Tika 2.9.0
-- **Database**: H2 (prototype), PostgreSQL ready
-- **Build**: Maven
+- **Document Manipulation**: Apache POI 5.2.3
+- **Fuzzy Matching**: Apache Commons Text 1.12.0
+- **Build Tool**: Maven
 
 ---
 
 ## Operational Costs
 
-The application uses the OpenAI API, which is a pay-as-you-go service. Based on initial testing, the average cost for a single run of the tailoring process is approximately **$0.035 (3.5 cents)**.
-
-This cost can fluctuate based on the length of the resume and the job description provided.
-
----
-
-## API Endpoints
-
-### 1. Upload Resume
-```
-POST /api/resumes/upload
-Input: multipart/form-data (PDF file)
-
-Output: { id, filename, message }
-
-```
-
-### 2. Analyze Resume Against Job
-```
-POST /api/resumes/analyze/{id}?vacancyUrl={url}
-
-Input: Job posting URL
-
-```
-### 3. Generate Tailored Resume
-```
-POST /api/resumes/tailor/{id}
-Input: { selectedKeywords: [...], maxDeviationPercent: 40 }
-Output: Tailored text + DOCX (base64-encoded)
-```
-
----
-
-## Versioning Guide (Semantic Versioning)
-
-This project follows Semantic Versioning (`MAJOR.MINOR.PATCH`). Use this guide for commits.
-
-### `2.0.0` (Major Version)
-Increment for **incompatible API changes** (breaking changes).
--   **Examples**: Changing an endpoint URL, removing an endpoint, or altering the JSON request/response structure in a non-backward-compatible way.
-
-### `1.1.0` (Minor Version)
-Increment for **adding new, backward-compatible functionality**.
--   **Examples**: Adding a new endpoint, adding a new *optional* field to a request, or extending functionality (e.g., supporting a new job site).
-
-### `1.0.1` (Patch Version)
-Increment for **backward-compatible bug fixes**.
--   **Examples**: Fixing runtime errors (like a `NullPointerException`), correcting AI prompt logic, or fixing formatting issues.
-### 4. Save Approved Resume
-```
-POST /api/resumes/approve/{id}
-Input: { company, position, docxBase64, improvements }
-Output: Folder path + saved files
-
-```
-
-```
-```
-
----
-
-## Scoring Formula
-
-
-```
-
-Final Score = (
-    0.20 * softSkillsMatch +
-    0.30 * technicalSkillsMatch +
-    0.40 * roleExperienceMatch +
-    0.10 * keywordMatch
-) * 100
-
-Score ≥ 75: "Good match"
-Score 50-74: "Moderate match"
-
-Score < 50: "Poor match"
-
-
-- ⛔ Job requires **UK Passport**
-
-When flagged, the system advises NOT to proceed as you don't meet the eligibility criteria.
-
----
-
-## File Structure
-```
-ai-job-tailor/
-├── src/main/java/com/bg/resume_analyser/
-│   ├── controller/
-│   │   └── ResumeController.java      # HTTP endpoints
-│   ├── service/
-│   │   ├── JobDescriptionService.java # Job posting scraping & parsing
-│   │   ├── MatchingService.java       # Score computation
-│   │   ├── ImproveService.java        # Suggestions & tailoring
-│   │   ├── DocxService.java           # DOCX generation
-│   │   └── StorageService.java        # File persistence
-│   ├── model/
-│   │   └── Resume.java                # JPA entity
-│   ├── repository/
-│   │   └── ResumeRepository.java      # Spring Data repository
-│   └── ResumeAnalyserApplication.java # Spring Boot entry
-├── src/main/resources/
-│   └── application.properties         # Config (OpenAI key)
-├── pom.xml                            # Maven dependencies
-├── DEMO_GUIDE.md                      # Complete API demo guide
-└── README.md                          # This file
-```
+The application uses the OpenAI API, which is a pay-as-you-go service. Based on initial testing, the average cost for a single run of the tailoring process is approximately **$0.035 (3.5 cents)**. This cost can fluctuate based on the length of the resume and the job description provided.
 
 ---
 
 ## Getting Started
 
 ### Prerequisites
-- Java 17+
-- Maven
-- OpenAI API key (set as `OPENAI_API_KEY` env var or in `application.properties`)
+-   Java 17+
+-   Maven
+-   An OpenAI API key
+
+### Configuration
+1.  The application looks for the OpenAI API key in an environment variable named `OPENAI_API_KEY`.
+    ```bash
+    export OPENAI_API_KEY="sk-your-key-here"
+    ```
+2.  Place your base resume, named `resume_1.docx`, in the root directory of the project.
 
 ### Run Application
 ```bash
+# Navigate to the project root
 cd ai-job-tailor
 
-# Start Spring Boot app
+# Run the Spring Boot application
 mvn spring-boot:run
 
-# App runs on http://localhost:8080
-```
-
-### Quick Test
-See **DEMO_GUIDE.md** for complete curl examples and end-to-end workflow.
-
-Brief example:
-```bash
-
-# 1. Upload resume
-curl -F "file=@resume.pdf" http://localhost:8080/api/resumes/upload
-
-# 2. Analyze against job (any of these work):
-# As query parameter:
-curl -X POST "http://localhost:8080/api/resumes/analyze/1?vacancyUrl=https://..."
-# As JSON body:
-curl -X POST "http://localhost:8080/api/resumes/analyze/1" \
-    -H "Content-Type: application/json" \
-    -d '{"vacancyUrl":"https://..."}'
-# As form data:
-curl -X POST "http://localhost:8080/api/resumes/analyze/1" \
-    -F "vacancyUrl=https://..."
-
-# 3-4. Generate and save tailored resume (see DEMO_GUIDE.md for details)
+# The API will be available at http://localhost:8080
 ```
 
 ---
 
-## Configuration
+## API Endpoint
 
-### application.properties
-```properties
-spring.application.name=resume-analyser
-spring.ai.openai.api-key=${OPENAI_API_KEY:}
+The application has a single endpoint to perform the tailoring.
 
-# H2 (default)
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.h2.console.enabled=true
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+### Tailor Resume
+`POST /api/resumes/tailor/{id}`
 
-# Optional: Switch to PostgreSQL for production
-# spring.datasource.url=jdbc:postgresql://localhost:5432/resume_db
-# spring.datasource.username=user
-# spring.datasource.password=pass
+-   `{id}`: The identifier of the resume file (e.g., `1` for `resume_1.docx`).
+
+**Request Body (JSON)**
+
+You must provide *either* a `vacancyUrl` or a `jobDescription`.
+
+**Example 1: Using a URL**
+```json
+{
+  "vacancyUrl": "https://www.linkedin.com/jobs/view/..."
+}
 ```
 
-### Environment Variables
+**Example 2: Using Plain Text**
+```json
+{
+  "jobDescription": "We are looking for a Senior Java Developer with experience in Spring Boot, microservices, and cloud platforms like AWS or Azure..."
+}
+```
+
+### How to Test with cURL
+
+There are three ways to provide the job description.
+
+**1. Tailor using a URL:**
 ```bash
-export OPENAI_API_KEY="sk-your-key-here"
+curl -X POST -H "Content-Type: application/json" \
+-d '{
+  "vacancyUrl": "https://www.linkedin.com/jobs/view/your-job-id-here/"
+}' \
+http://localhost:8080/api/resumes/tailor/1
 ```
 
----
+**2. Tailor using inline plain text (for short descriptions):**
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{
+  "jobDescription": "Your job description text here."
+}' \
+http://localhost:8080/api/resumes/tailor/1
+```
 
-## Output Folder Structure
+**3. Tailor using a JSON file (Recommended for long descriptions):**
+
+First, create a file named `job.json` with the following content:
+```json
+{
+  "jobDescription": "Paste the full, long job description text here..."
+}
 ```
-/Users/brunoguimaraes/Documents/JA/
-├── Google_Senior_Software_Engineer/
-│   ├── tailored_resume_2025-12-04.docx
-│   ├── tailored_resume_2025-12-04.txt
-│   └── metadata.txt
-├── Microsoft_Software_Engineer_II/
-│   ├── tailored_resume_2025-12-05.docx
-│   ├── tailored_resume_2025-12-05.txt
-│   └── metadata.txt
-└── ...
+
+Then, run `curl` using the `--data` flag:
+```bash
+curl -X POST -H "Content-Type: application/json" \
+--data @job.json \
+http://localhost:8080/api/resumes/tailor/1
 ```
+
+Upon success, a `resume_1_tailored.docx` file and a `metadata.txt` file detailing the changes will be created in the project's root directory.
 
 ---
 
 ## Next Steps
-
-### Phase 2: UI Implementation
-- [ ] React web app (or simple HTML form)
-- [ ] One-time resume upload
-- [ ] Job URL input
-- [ ] Display extracted job details
-- [ ] Show match score & improvements
-- [ ] Select keywords for tailoring
-- [ ] Preview tailored resume
-- [ ] Download DOCX/PDF
-- [ ] Mark as applied checkbox
-
-### Phase 3: Enhancements
-- [ ] PDF generation (DOCX → PDF conversion)
-- [ ] PostgreSQL migration
-- [ ] User authentication
-- [ ] Resume comparison / multi-resume support
-- [ ] Auto-apply integration (LinkedIn, Indeed, email)
-- [ ] Advanced analytics (best performing keywords, company trends)
-- [ ] Cloud deployment (Heroku, Azure, AWS)
-
----
-
-## Evaluation Metrics
-
-After using the system, you can evaluate:
-1. **Acceptance Rate**: How many tailored resumes resulted in interviews?
-2. **Score vs. Outcome**: Do higher match scores correlate with better results?
-3. **Keyword Impact**: Which suggested keywords most improved outcomes?
-4. **Time Saved**: How much time did the tailoring save vs. manual editing?
-
----
-
-## Testing Checklist
-
-- [ ] Upload a PDF resume
-- [ ] Analyze against a real job posting (LinkedIn/Indeed/company site)
-- [ ] Review match score (should be 0-100)
-- [ ] View improvement suggestions
-- [ ] Generate tailored DOCX
-- [ ] Download and review in Word/Google Docs
-- [ ] Approve and save to JA folder
-- [ ] Verify files in `/Users/brunoguimaraes/Documents/JA/`
-
----
-
-## Support & Contact
-
-For issues, feature requests, or questions:
-1. Check DEMO_GUIDE.md for API examples
-2. Review application logs: `mvn spring-boot:run`
-3. Test individual endpoints with Postman or curl
+-   [ ] Build a simple web UI (e.g., using React or Thymeleaf) to provide a more user-friendly interface than cURL.
+-   [ ] Continue to refine the AI prompt in `ImproveService` for even greater accuracy and consistency.
+-   [ ] Add support for more input file formats (e.g., `.pdf`).
+-   [ ] Implement a global exception handler (`@ControllerAdvice`) for more consistent API error responses.
 
 ---
 
 ## License
 
-Personal project. Free to modify and extend.
-
----
-
-**Status**: MVP backend complete. Ready for testing with your resume and real job postings.
-**Demo Ready**: In 4 days from start date.
-**Next**: React UI for seamless user experience.
-
-🚀 **Good luck with your applications!**
+This is a personal project. You are free to use, modify, and extend it.
