@@ -150,6 +150,8 @@ http://localhost:8080/api/resumes/tailor/1
 
 **3. Tailor using a JSON file (Recommended for long descriptions):**
 
+This method is the most reliable way to handle long job descriptions with special characters, as it avoids issues with shell command interpretation. However, it requires manually copying and pasting text, which is not an optimal long-term workflow. A proper UI would be a better solution.
+
 First, create a file named `job.json` with the following content:
 ```json
 {
